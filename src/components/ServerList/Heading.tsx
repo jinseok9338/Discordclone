@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyledHeading = styled.div`
     position: relative;
-    top: 0.5rem;
+    top: 0rem;
         left: 0.5rem;
 
 `;
