@@ -1,5 +1,6 @@
 import BottomProfile from "../../components/BottomProfile";
 import HomeNavigation from "../../components/HomeNavigation";
+import MainContent from "../../components/MainContent";
 import ServerList from "../../components/ServerList";
 import TopNavigation from "../../components/TopNavigation";
 import { MainPageBackground } from "./styledMainPage";
@@ -10,7 +11,8 @@ const MainPage = () => {
           <TopNavigation/>
           <ServerList />
           <HomeNavigation />
-          <BottomProfile/>
+          <BottomProfile />
+          <MainContent/>
     </MainPageBackground>
   );
 };
