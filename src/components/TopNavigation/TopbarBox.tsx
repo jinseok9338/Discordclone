@@ -18,7 +18,7 @@ height: 24px;
 const TopbarBoxHeading = styled.div`
 width: 103px;
 height: 22px;
-border-right: 2px;
+border-right: solid;
 border-color: #42454A;
 `
 
