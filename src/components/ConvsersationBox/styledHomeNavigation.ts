@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHomeNavigation = styled.div`
+export const StyledConversationBox = styled.div`
 position: absolute;
 width: 240px;
 height: 955px;

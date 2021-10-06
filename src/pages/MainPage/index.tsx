@@ -1,5 +1,5 @@
 import BottomProfile from "../../components/BottomProfile";
-import HomeNavigation from "../../components/HomeNavigation";
+import ConversationBox from "../../components/ConvsersationBox";
 import MainContent from "../../components/MainContent";
 import ServerList from "../../components/ServerList";
 import TopNavigation from "../../components/TopNavigation";
@@ -10,7 +10,7 @@ const MainPage = () => {
     <MainPageBackground>
           <TopNavigation/>
           <ServerList />
-          <HomeNavigation />
+      <ConversationBox />
           <BottomProfile />
           <MainContent/>
     </MainPageBackground>
