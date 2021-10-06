@@ -1,10 +1,15 @@
-import React from 'react'
-import { StyledBottomProfile } from './StyledBottomProfile'
+import React from "react";
+import Icons from "./icons";
+import Profile from "./Profile";
+import { StyledBottomProfile } from "./StyledBottomProfile";
 
 function BottomProfile() {
-    return (
-        <StyledBottomProfile/>
-    )
+  return (
+    <StyledBottomProfile>
+          <Profile />
+          <Icons/>
+    </StyledBottomProfile>
+  );
 }
 
-export default BottomProfile
+export default BottomProfile;

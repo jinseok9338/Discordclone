@@ -1,10 +1,8 @@
-import React from 'react'
-import { StyledMainContent } from './StyledMainContent'
+import React from "react";
+import { StyledMainContent } from "./StyledMainContent";
 
 function MainContent() {
-    return (
-        <StyledMainContent/>
-    )
+  return <StyledMainContent />;
 }
 
-export default MainContent
+export default MainContent;

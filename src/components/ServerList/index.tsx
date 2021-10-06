@@ -10,8 +10,9 @@ const ServerList = () => {
       <Heading />
       <HomeIcon />
       <Devider />
-      <ServserNavigation/>
-  </StyledServerList>)
+      <ServserNavigation />
+    </StyledServerList>
+  );
 };
 
 export default ServerList;
