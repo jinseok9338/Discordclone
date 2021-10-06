@@ -1,4 +1,4 @@
-c
+
 const Friends = () => {
     return (
         
