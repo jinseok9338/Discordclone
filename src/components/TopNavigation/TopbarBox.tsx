@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import IconBox from "./IconBox";
 import TopbarAction from "./TopBarAction";
 
 const StyledTopbarBox = styled.div`
@@ -54,6 +55,7 @@ function TopbarBox() {
             <StyledTopbarInnerBox>
                 <TopbarBoxHeading />
                 <TopbarAction />
+                <IconBox/>
             </StyledTopbarInnerBox> 
         </StyledTopbarBox>
     )

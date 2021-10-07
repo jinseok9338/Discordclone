@@ -1,4 +1,3 @@
-import OnlineHighLighted from "./TopBarAction";
 import { StyledTopNavigation } from "./StyledTopNavigation";
 import TopbarBox from "./TopbarBox";
 import TopbarConversation from "./TopbarConversation";
