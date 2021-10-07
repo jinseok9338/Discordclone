@@ -1,15 +1,16 @@
 import styled from "styled-components";
+import MeChat from "./MeChat";
 import OtherPersonChat from "./OtherPersonChat";
 
 export const StyledChatsContainer = styled.div`
 width: 1190px;
-height: 1008px;
 border-right: solid 1px rgb(226, 226, 226,0.3);
 background-color: #36393F;
 display:flex;
 flex-direction: column-reverse;
 align-items: center;
 justify-content: flex-start;
+
 `;
 
 const DayContainer = styled.div`
@@ -32,6 +33,7 @@ font-size:1rem;
 const Chats = () => {
     return (
         <StyledChatsContainer>
+            <MeChat/>
                 <OtherPersonChat/>
             <DayContainer>
                 <DayContainerP>Today</DayContainerP>

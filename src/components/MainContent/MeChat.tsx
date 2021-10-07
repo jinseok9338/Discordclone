@@ -1,12 +1,13 @@
 import React from 'react'
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const OtherPersonChatContainer = styled.div`
+const MeChatContainer = styled.div`
   display:flex;
   flex-direction: column;
   width: 1190px;
   justify-content: flex-start;
   margin-left: 3rem;
+  margin-right:auto;
 `;
 
 const StyledName = styled.p`
@@ -74,17 +75,16 @@ margin-left: 1rem ;
 margin-right: 1rem;
 `
 
+const numbers = [1, 2, 3, 4, 5]
 
-const numbers =[1,2,3,4,5]
 
-
-function OtherPersonChat() {
+function MeChat() {
     return (
-        <OtherPersonChatContainer>
+        <MeChatContainer>
             <StyledName>Jinseok Seo</StyledName>
             <ChatsContainer>
                 <IconContainer>
-                    <Icon src="image/avatar3.png" alt="avatar Image"/>
+                    <Icon src="image/avatar3.png" alt="avatar Image" />
                 </IconContainer>
                 <ChatContainer>
                     <ChatBubbleContainer>
@@ -96,15 +96,15 @@ function OtherPersonChat() {
                         <ChatBubbleDate> 3 days ago</ChatBubbleDate>
                     </ChatBubbleContainer>
                     <ChatPicturesContainer>
-                        {numbers.slice(0,4).map(number => (
+                        {numbers.slice(0, 4).map(number => (
                             <ChatPictures src={`image/${number}.jpg`} alt={number.toString()} />
                         ))}
                         {numbers.length > 4 && <h1>{`+${numbers.length - 4}`}</h1>}
                     </ChatPicturesContainer>
                 </ChatContainer>
             </ChatsContainer>
-        </OtherPersonChatContainer>
+        </MeChatContainer>
     )
 }
 
-export default OtherPersonChat
+export default MeChat
