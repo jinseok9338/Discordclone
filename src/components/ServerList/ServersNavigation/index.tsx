@@ -11,7 +11,7 @@ export const StyledServersNavigation = styled.div`
 
   position: relative;
   width: 68px;
-  height: 988px;
+     height: auto;
   top: 1rem;
 `;
 

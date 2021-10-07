@@ -7,6 +7,7 @@ const OtherPersonChatContainer = styled.div`
   width: 1190px;
   justify-content: flex-start;
   margin-left: 3rem;
+    margin-bottom: 1rem;
 `;
 
 const StyledName = styled.p`
@@ -38,6 +39,7 @@ width:auto;
 `
 const ChatBubbleContainer = styled.div`
 padding:0.5rem;
+width:fit-content;
 max-width:506px;
 background: #E3F6FC;
 border-radius: 0px 14px 14px 14px;
@@ -62,6 +64,7 @@ display: flex;
 align-items: center;
 margin-top:0.5rem;
 overflow-y: hidden;
+width:fit-content;
 overflow-x: auto;
 ::-webkit-scrollbar{height:4px;border-radius:12px;}
 ::-webkit-scrollbar-thumb{background-color:#b8b7b6;}
@@ -75,7 +78,7 @@ margin-right: 1rem;
 `
 
 
-const numbers =[1,2,3,4,5]
+const numbers =[1]
 
 
 function OtherPersonChat() {

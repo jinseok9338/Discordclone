@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ChatsInput from "./ChatsInput";
 import MeChat from "./MeChat";
 import OtherPersonChat from "./OtherPersonChat";
 
@@ -10,11 +11,17 @@ display:flex;
 flex-direction: column-reverse;
 align-items: center;
 justify-content: flex-start;
+ overflow-y: scroll;
+ overflow-x:hidden;
+ ::-webkit-scrollbar{width:4px;border-radius:12px;}
+::-webkit-scrollbar-thumb{background-color:#b8b7b6;}
 
 `;
 
 const DayContainer = styled.div`
 width: 114px;
+top:1rem;
+position:relative;
 height: 26px;
 border-radius: 14px;
 display: flex;
@@ -28,16 +35,23 @@ color:white;
 font-size:1rem;
 `
 
+const EmptyContainer = styled.div`
+    width: 1190px;
+    padding:1rem;
+`
+
 
 
 const Chats = () => {
     return (
         <StyledChatsContainer>
-            <MeChat/>
+            <ChatsInput/>
+            <MeChat/> 
                 <OtherPersonChat/>
             <DayContainer>
                 <DayContainerP>Today</DayContainerP>
             </DayContainer>
+            <EmptyContainer/>
         </StyledChatsContainer>
     )
 }

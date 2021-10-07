@@ -6,19 +6,25 @@ const MeChatContainer = styled.div`
   flex-direction: column;
   width: 1190px;
   justify-content: flex-start;
-  margin-left: 3rem;
-  margin-right:auto;
+  margin-right: 3rem;
+  margin-top:1rem;
+  margin-bottom: 1rem;
+
 `;
 
 const StyledName = styled.p`
 font-size:1rem;
 color:white;
-margin:0;
+margin-left:auto;
+  margin-bottom:0;
+  margin-top:0;
 `
 const ChatsContainer = styled.div`
 margin-top: 0.5rem;
 width: 1046px;
 display:flex;
+align-self: flex-end;
+justify-content: flex-end;
 `
 const IconContainer = styled.div`
 width: 46px;
@@ -34,16 +40,17 @@ border-radius:50%;
 `
 
 const ChatContainer = styled.div`
-margin-left:0.5rem;
 width:auto;
 `
 const ChatBubbleContainer = styled.div`
 padding:0.5rem;
 max-width:506px;
-background: #E3F6FC;
-border-radius: 0px 14px 14px 14px;
+width:fit-content;
+background: #F3BA4A;;
+border-radius: 14px 0px 14px 14px;
 display: flex;
 flex-direction: column;
+margin-left:auto;
 align-items: flex-start;
 margin-top:0.5rem;
 `
@@ -57,11 +64,13 @@ margin-left: auto;
 const ChatPicturesContainer = styled.div`
 padding:0.5rem;
 max-width:992px;
-background: #E3F6FC;
-border-radius: 0px 14px 14px 14px;
+background: #F3BA4A;;
+border-radius: 14px 0px 14px 14px;
 display: flex;
 align-items: center;
+margin-left:auto;
 margin-top:0.5rem;
+width:fit-content;
 overflow-y: hidden;
 overflow-x: auto;
 ::-webkit-scrollbar{height:4px;border-radius:12px;}
@@ -75,24 +84,26 @@ margin-left: 1rem ;
 margin-right: 1rem;
 `
 
-const numbers = [1, 2, 3, 4, 5]
+const numbers = [1, 2]
 
 
 function MeChat() {
     return (
         <MeChatContainer>
-            <StyledName>Jinseok Seo</StyledName>
+            <StyledName>Jason Jin</StyledName>
             <ChatsContainer>
-                <IconContainer>
-                    <Icon src="image/avatar3.png" alt="avatar Image" />
-                </IconContainer>
                 <ChatContainer>
                     <ChatBubbleContainer>
                         <ChatBubbleP>Hello There this is the moment</ChatBubbleP>
                         <ChatBubbleDate> 3 days ago</ChatBubbleDate>
                     </ChatBubbleContainer>
                     <ChatBubbleContainer>
-                        <ChatBubbleP>Thjis is the big there alsdiajklan asjkdnkjassn asdjdjkndkjasdnjnafnjk adjnajk sndkasn sakdnkjasnd asdnkj asn</ChatBubbleP>
+                        <ChatBubbleP>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+                            Why do we use it?
+                            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+</ChatBubbleP>
                         <ChatBubbleDate> 3 days ago</ChatBubbleDate>
                     </ChatBubbleContainer>
                     <ChatPicturesContainer>
@@ -102,6 +113,9 @@ function MeChat() {
                         {numbers.length > 4 && <h1>{`+${numbers.length - 4}`}</h1>}
                     </ChatPicturesContainer>
                 </ChatContainer>
+                <IconContainer>
+                    <Icon src="image/avatar1.png" alt="avatar Image" />
+                </IconContainer>
             </ChatsContainer>
         </MeChatContainer>
     )

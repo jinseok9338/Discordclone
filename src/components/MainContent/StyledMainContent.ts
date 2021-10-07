@@ -7,4 +7,5 @@ export const StyledMainContent = styled.div`
   height: 1008px;
   left: 312px;
   top: 72px;
+ 
 `;
