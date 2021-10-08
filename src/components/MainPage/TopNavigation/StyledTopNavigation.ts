@@ -6,6 +6,5 @@ export const StyledTopNavigation = styled.div`
   height: 50px;
   left: 72px;
   top: 22px;
-  display:flex;
-
+  display: flex;
 `;

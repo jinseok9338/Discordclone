@@ -1,14 +1,27 @@
 import "./App.css";
 import MainPage from "./pages/MainPage";
-import { Route } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router  } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import SignUpFormPage from "./pages/SignUpPage";
 
+
+
 function App() {
-  return (<div>
-    <Route path="/Login" component={LoginPage} />
-    <Route path="/main" component={MainPage} />
-    <Route path="/SignUp" component={SignUpFormPage} />
+  
+
+  return (
+    <div>
+      <Router>
+      <Switch>
+        {true && (
+          <Route path="/main" component={MainPage} />
+        )}
+          <>
+            <Route path="/Login" component={LoginPage} />
+            <Route path="/SignUp" component={SignUpFormPage} />
+          </>
+        </Switch>
+      </Router>
     </div>
   );
 }

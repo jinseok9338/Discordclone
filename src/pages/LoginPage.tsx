@@ -8,21 +8,17 @@ export const LoginPageBackground = styled.div`
   left: 0px;
   top: 0px;
   background: #202225;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-
-
-
 const LoginPage = () => {
-    return (
-      <LoginPageBackground>
-        <LoginForm/>
-      </LoginPageBackground>
-    )
+  return (
+    <LoginPageBackground>
+      <LoginForm />
+    </LoginPageBackground>
+  );
+};
 
-}
-
-export default LoginPage
+export default LoginPage;

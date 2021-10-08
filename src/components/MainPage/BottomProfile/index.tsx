@@ -6,8 +6,8 @@ import { StyledBottomProfile } from "./StyledBottomProfile";
 function BottomProfile() {
   return (
     <StyledBottomProfile>
-          <Profile />
-          <Icons/>
+      <Profile />
+      <Icons />
     </StyledBottomProfile>
   );
 }

@@ -8,21 +8,17 @@ export const SignUpFormPageBackground = styled.div`
   left: 0px;
   top: 0px;
   background: #202225;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-
-
-
 const SignUpFormPage = () => {
-    return (
-        <SignUpFormPageBackground>
-            <SignUpForm />
-        </SignUpFormPageBackground>
-    )
+  return (
+    <SignUpFormPageBackground>
+      <SignUpForm />
+    </SignUpFormPageBackground>
+  );
+};
 
-}
-
-export default SignUpFormPage
+export default SignUpFormPage;
