@@ -1,10 +1,12 @@
 import "./App.css";
 import MainPage from "./pages/MainPage";
+import { Route } from 'react-router-dom';
+import LoginPage from "./pages/LoginPage";
 
 function App() {
-  return (
-    <div className="App">
-      <MainPage />
+  return (<div>
+    <Route path="/" component={LoginPage} />
+    <Route path="/main" component={MainPage} />
     </div>
   );
 }

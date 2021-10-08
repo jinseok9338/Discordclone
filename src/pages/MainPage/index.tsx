@@ -1,8 +1,8 @@
-import BottomProfile from "../../components/BottomProfile";
-import ConversationBox from "../../components/ConvsersationBox";
-import MainContent from "../../components/MainContent";
-import ServerList from "../../components/ServerList";
-import TopNavigation from "../../components/TopNavigation";
+import BottomProfile from "../../components/MainPage/BottomProfile";
+import ConversationBox from "../../components/MainPage/ConvsersationBox";
+import MainContent from "../../components/MainPage/MainContent";
+import ServerList from "../../components/MainPage/ServerList";
+import TopNavigation from "../../components/MainPage/TopNavigation";
 import { MainPageBackground } from "./styledMainPage";
 
 const MainPage = () => {
