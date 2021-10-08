@@ -47,6 +47,7 @@ const PasswordIcon = () => (
 )
 
 const Input = styled.input`
+color:white;
 width:100%;
 margin-left: 1rem;
 background-color: transparent;
