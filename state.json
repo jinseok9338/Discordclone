@@ -1,0 +1,42 @@
+{
+    "user":{
+        "userId":"adadasdasdasd",
+        "profilePic":"adadasdadad",
+        "displayName":"dasdadasd",
+        "friends":[
+            {
+                "userId":"adadasdasdasd",
+                "displayName":"dasdadasd",
+                "profilePic":"asdasdad"
+            },
+            {
+                "userId": "adadasdasdasd",
+                "displayName": "dasdadasd",
+                "profilePic": "asdasdad"
+            }
+        ],
+        "FriendsRequest":[
+                {
+                    "userId": "adadasdasdasd",
+                    "displayName": "dasdadasd",
+                    "profilePic": "asdasdad"
+                }
+        ],
+        "FriendsRequestSent": [
+                {
+                    "userId": "adadasdasdasd",
+                    "displayName": "dasdadasd",
+                    "profilePic": "asdasdad"
+                }
+            ]
+    },
+    "chats":[
+        {
+            "chatId":"adasdad",
+            "chats":[
+                {"userId":"asdad",
+                "message":"dadada",
+            "read":false}
+            ]        }
+    ]
+}
