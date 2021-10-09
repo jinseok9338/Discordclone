@@ -20,7 +20,8 @@ const SignUpForm = () => {
   const [error, setError] = useState({} as ErrorType);
   const auth = getAuth();
   const { state, dispatch } = useContext(stateContext)
-
+  
+  console.log(state)
 
   const history = useHistory()
 
@@ -48,6 +49,7 @@ const SignUpForm = () => {
           setPassword("")
           setConfirmPassword("")
           setError({} as ErrorType)
+          history.push("/main")
         })
         .catch((error) => {
           setError({

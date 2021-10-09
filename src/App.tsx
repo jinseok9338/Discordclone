@@ -7,14 +7,13 @@ import { useReducer } from "react";
 import { stateReducer } from "./StateManagement/reducer";
 import { initialState, State } from "./StateManagement/state";
 import { stateContext } from "./StateManagement/context";
-import { StateActions } from "./StateManagement/action";
-
 
 
 
 const App =()=> {
   
-  const [state, dispatch] = useReducer(stateReducer, initialState) // Why typing is all wrong
+  const [state, dispatch] = useReducer(stateReducer, initialState) // Can't use async in useReducer... Shit ... 
+  
   return (
     < stateContext.Provider value = {{ state, dispatch }
 }>

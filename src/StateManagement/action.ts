@@ -3,7 +3,6 @@ import { userType } from "../Types/userType";
 
 export enum ActionType {
     SetUser,
-    AddChats,
 }
 
 export interface SetUser {
