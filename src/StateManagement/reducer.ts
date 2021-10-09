@@ -3,38 +3,44 @@ import { chatType } from "../Types/chatType";
 import { userProfileType } from "../Types/userType";
 import { ActionType, StateActions } from "./action";
 import { State } from "./state";
+import { doc, getDoc } from "firebase/firestore";
+import { firestore } from "../firebase/firebase";
 
 //TODO Making Dispatch for the chats and user
 
-export function stateReducer(state: State, action: StateActions): State {
+export async function stateReducer(state: State, action: StateActions): Promise<State> {
     switch (action.type) {
-        // case ActionType.AddUser:
-        //     return {
-        //         // Firebase auth and firestore
-        //         user: {} };
-        // case ActionType.AddChats:
-        //         // Firebse add Chats 
+        case ActionType.SetUser:
+            const userId = action.payload
+            const docRef = doc(firestore, "users", userId);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                const {FriendsRequest,FriendsRequestSent,displayName,email,friends,profilePic,userId} = docSnap.data() as userProfileType
+                return {
+                    user: { FriendsRequest, FriendsRequestSent, displayName, email, friends, profilePic, userId },
+                    chats: state.chats
+                };
+            }
+            break;
 
-        //     return {
-        
-        //     };
 
         default:
             return state;
     }
+    return state
 }
 
 
 // helper functions to simplify the caller
-export const AddUser = (user: userProfileType) => {
+export const SetUser = (userId: string) => {
     return ({
-        type: ActionType.AddUser,
-        payload: user,
+        type: ActionType.SetUser,
+        payload: userId,
     })
 };
 
-export const AddChats = (chat: chatType) => ({
-    type: ActionType.AddChats,
-    payload: chat,
-});
+// export const AddChats = (chat: chatType) => ({
+//     type: ActionType.AddChats,
+//     payload: chat,
+// });
 

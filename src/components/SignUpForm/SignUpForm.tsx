@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { validateConfirmPassword, validateEmail, validatePassword } from "../../utils/utils";
@@ -8,6 +8,7 @@ import { ErrorType, StyledLoginFormContainer, DiscordIcon, InputContainer, UserI
 import { collection, doc, setDoc } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 import { userProfileType } from "../../Types/userType";
+import { stateContext } from "../../StateManagement/context";
 
 
 
@@ -17,6 +18,7 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState({} as ErrorType);
   const auth = getAuth();
+  const { state, dispatch } = useContext(stateContext)
 
 
   const history = useHistory()

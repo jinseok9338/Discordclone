@@ -2,18 +2,18 @@ import { chatType } from "../Types/chatType";
 import { userType } from "../Types/userType";
 
 export enum ActionType {
-    AddUser,
+    SetUser,
     AddChats,
 }
 
-export interface AddUser {
-    type: ActionType.AddUser;
-    payload: userType;
+export interface SetUser {
+    type: ActionType.SetUser;
+    payload: string;
 }
 
-export interface AddChats {
-    type: ActionType.AddChats;
-    payload: chatType
-}
+// export interface AddChats {
+//     type: ActionType.AddChats;
+//     payload: chatType
+// }
 
-export type StateActions = AddUser | AddChats;
+export type StateActions = SetUser 

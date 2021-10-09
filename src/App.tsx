@@ -11,9 +11,9 @@ import { stateContext } from "./StateManagement/context";
 
 
 
-function App() {
+const App =()=> {
   
-  const [state, dispatch] = useReducer(stateReducer, initialState);
+  const [{}, dispatch] =  useReducer(stateReducer, initialState);
   return (
     < stateContext.Provider value = {{ state, dispatch }
 }>
