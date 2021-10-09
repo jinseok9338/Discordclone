@@ -8,19 +8,21 @@ import { firestore } from "../firebase/firebase";
 
 //TODO Making Dispatch for the chats and user
 
-export async function stateReducer(state: State, action: StateActions): Promise<State> {
+export  function stateReducer(state: State, action: StateActions): State {
     switch (action.type) {
         case ActionType.SetUser:
             const userId = action.payload
             const docRef = doc(firestore, "users", userId);
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-                const {FriendsRequest,FriendsRequestSent,displayName,email,friends,profilePic,userId} = docSnap.data() as userProfileType
-                return {
-                    user: { FriendsRequest, FriendsRequestSent, displayName, email, friends, profilePic, userId },
-                    chats: state.chats
-                };
-            }
+            getDoc(docRef).then((DocumentSnapshot)=>{
+                if (DocumentSnapshot.exists()) {
+                    const { FriendsRequest, FriendsRequestSent, displayName, email, friends, profilePic, userId } = DocumentSnapshot.data() as userProfileType
+                    return {
+                        user: { FriendsRequest, FriendsRequestSent, displayName, email, friends, profilePic, userId },
+                        chats: state.chats
+                    };
+                }
+            })
+            
             break;
 
 

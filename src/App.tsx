@@ -5,15 +5,16 @@ import LoginPage from "./pages/LoginPage";
 import SignUpFormPage from "./pages/SignUpPage";
 import { useReducer } from "react";
 import { stateReducer } from "./StateManagement/reducer";
-import { initialState } from "./StateManagement/state";
+import { initialState, State } from "./StateManagement/state";
 import { stateContext } from "./StateManagement/context";
+import { StateActions } from "./StateManagement/action";
 
 
 
 
 const App =()=> {
   
-  const [{}, dispatch] =  useReducer(stateReducer, initialState);
+  const [state, dispatch] = useReducer(stateReducer, initialState) // Why typing is all wrong
   return (
     < stateContext.Provider value = {{ state, dispatch }
 }>

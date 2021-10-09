@@ -9,6 +9,7 @@ import { collection, doc, setDoc } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 import { userProfileType } from "../../Types/userType";
 import { stateContext } from "../../StateManagement/context";
+import { SetUser } from "../../StateManagement/reducer";
 
 
 
@@ -40,7 +41,8 @@ const SignUpForm = () => {
             friends:[],
             profilePic: user.photoURL || `https://avatars.dicebear.com/api/initials/${user.email}.svg`
           } as userProfileType
-          await setDoc(doc(firestore, "users", user.uid ), data);
+          await setDoc(doc(firestore, "users", user.uid), data);
+          dispatch(SetUser(user.uid))
           alert("user Created")
           setEmail("")
           setPassword("")
