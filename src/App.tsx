@@ -6,11 +6,12 @@ import SignUpFormPage from "./pages/SignUpPage";
 
 
 
+
 function App() {
   
 
   return (
-    <div>
+    <div> 
       <Router>
       <Switch>
         {true && (
