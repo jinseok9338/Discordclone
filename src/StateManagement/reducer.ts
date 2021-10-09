@@ -1,5 +1,3 @@
-import { UserProfile } from "@firebase/auth";
-import { chatType } from "../Types/chatType";
 import { userProfileType } from "../Types/userType";
 import { ActionType, StateActions } from "./action";
 import { State } from "./state";
