@@ -35,6 +35,7 @@ export const InputContainer = styled.div`
   margin-top: 1rem;
   display: flex;
   align-items: center;
+  
 `;
 const StyledIcon = styled.svg`
   margin-left: 1rem;
@@ -111,6 +112,7 @@ export const StyledButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 export const Login = styled.span`
   font-family: Montserrat;
@@ -118,6 +120,7 @@ export const Login = styled.span`
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
+    cursor: pointer;
   /* identical to box height, or 125% */
   text-align: center;
   text-transform: uppercase;

@@ -8,16 +8,16 @@ import { State } from "./state";
 
 export function stateReducer(state: State, action: StateActions): State {
     switch (action.type) {
-        case ActionType.AddUser:
-            return {
-                // Firebase auth and firestore
-                user: {} };
-        case ActionType.AddChats:
-                // Firebse add Chats 
+        // case ActionType.AddUser:
+        //     return {
+        //         // Firebase auth and firestore
+        //         user: {} };
+        // case ActionType.AddChats:
+        //         // Firebse add Chats 
 
-            return {
+        //     return {
         
-            };
+        //     };
 
         default:
             return state;
@@ -27,8 +27,6 @@ export function stateReducer(state: State, action: StateActions): State {
 
 // helper functions to simplify the caller
 export const AddUser = (user: userProfileType) => {
-    // Firebase auth and firestore
-
     return ({
         type: ActionType.AddUser,
         payload: user,

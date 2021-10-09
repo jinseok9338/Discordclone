@@ -7,6 +7,7 @@ export type userType = {
 
 
 export type userProfileType = {
+    email:string
         userId: string,
         profilePic: string,
         displayName: string,

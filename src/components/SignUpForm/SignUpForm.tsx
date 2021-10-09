@@ -5,6 +5,9 @@ import { validateConfirmPassword, validateEmail, validatePassword } from "../../
 import { getAuth, createUserWithEmailAndPassword, Auth } from "firebase/auth";
 import { ErrorType, StyledLoginFormContainer, DiscordIcon, InputContainer, UserIcon, Input, PasswordIcon, ErrorSpan, StyledButton, Login, WantToSignUp } from "./StyledSignUpForm";
 // TODO Making Loading spinner and better transition : When making animation
+import { collection, doc, setDoc } from "firebase/firestore";
+import { firestore } from "../../firebase/firebase";
+import { userProfileType } from "../../Types/userType";
 
 
 
@@ -24,11 +27,23 @@ const SignUpForm = () => {
       setError({} as ErrorType)
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
+        .then(async (UserCredential) => {
+          const user = UserCredential.user
+          let data = {
+            userId: user.uid,
+            FriendsRequest: [],
+            FriendsRequestSent: [],
+            displayName: user.displayName || user.email!.substr(0, user.email!.indexOf('@')),
+            email:user.email,
+            friends:[],
+            profilePic: user.photoURL || `https://avatars.dicebear.com/api/initials/${user.email}.svg`
+          } as userProfileType
+          await setDoc(doc(firestore, "users", user.uid ), data);
           alert("user Created")
           setEmail("")
           setPassword("")
           setConfirmPassword("")
+          setError({} as ErrorType)
         })
         .catch((error) => {
           setError({
@@ -54,7 +69,7 @@ const SignUpForm = () => {
       <InputContainer>
         <PasswordIcon />
         <Input placeholder="PassWord" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </InputContainer>
+      </InputContainer> 
       <InputContainer>
         <PasswordIcon />
         <Input placeholder="Confirm PassWord" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />

@@ -111,6 +111,7 @@ export const StyledButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+   cursor: pointer;
 `;
 export const Login = styled.span`
   font-family: Montserrat;
@@ -121,6 +122,7 @@ export const Login = styled.span`
   /* identical to box height, or 125% */
   text-align: center;
   text-transform: uppercase;
+   cursor: pointer;
 
   color: #2148c0;
 `;
