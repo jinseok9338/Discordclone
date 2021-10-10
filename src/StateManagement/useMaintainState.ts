@@ -9,11 +9,12 @@ const useMaintainState = () => {
     const [mainState, setMaionState] = useState<{ user: userProfileType, chats: chatType[] }>(JSON.parse(sessionStorage.getItem('state')!) ? JSON.parse(sessionStorage.getItem('state')!) : {})
 
     useEffect(() => {
-        // Whenever state change you should theroretically setItem and retrieve Item but when the page is refreshed... You can't do that ... 
-        // What the fuck
-        sessionStorage.setItem('state', JSON.stringify(state));
+        if (Object.keys(state).length !== 0) {
+            sessionStorage.setItem('state', JSON.stringify(state));
+        }
+        
         setMaionState(JSON.parse(sessionStorage.getItem('state')!));
-    }, [mainState]);
+    }, [state]);
     return {mainState}
 }
 
