@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import useMaintainState from "../../../hooks/useMaintainState";
 import ChatsInput from "./ChatsInput";
 import MeChat from "./MeChat";
 import OtherPersonChat from "./OtherPersonChat";
-
+ // TODO Day container calculate the day
 export const StyledChatsContainer = styled.div`
   width: 1190px;
   border-right: solid 1px rgb(226, 226, 226, 0.3);
@@ -44,14 +45,21 @@ const EmptyContainer = styled.div`
   padding: 1rem;
 `;
 
-const Chats = () => {
+const Chats = ({chatId}:{chatId:string}) => {
+  const { mainState: { user: { userId }, chats } } = useMaintainState()
+  
+  const selectedChat = chats.filter((chat) => chat.chatId === chatId)[0]
+  
   return (
     <StyledChatsContainer>
       <ChatsInput />
-      <MeChat />
-      <OtherPersonChat />
+      {selectedChat && (
+        selectedChat.chats.map((chat) => (
+          chat.user.userId === userId ? <MeChat /> : <OtherPersonChat />
+        ))
+)}
       <DayContainer>
-        <DayContainerP>Today</DayContainerP>
+        <DayContainerP>Today</DayContainerP> 
       </DayContainer>
       <EmptyContainer />
     </StyledChatsContainer>

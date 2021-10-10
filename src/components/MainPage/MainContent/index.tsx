@@ -4,9 +4,11 @@ import Chats from "./Chats";
 import { StyledMainContent } from "./StyledMainContent";
 
 function MainContent() {
+
+// TODO need to make hook that forks chatId and automatically add the chats to the chats state ... This is brilliant  
   return (
     <StyledMainContent>
-      <Chats />
+      <Chats chatId={""}/>
       <Active />
     </StyledMainContent>
   );
