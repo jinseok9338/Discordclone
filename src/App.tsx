@@ -19,13 +19,13 @@ const App =()=> {
 }>
       <Router>
       <Switch>
-        {true && (
-          <Route path="/" component={MainPage} />
-        )}
-          <>
+         
+          <Route path="/" exact component={MainPage} />
+       
+         
             <Route path="/Login" component={LoginPage} />
             <Route path="/SignUp" component={SignUpFormPage} />
-          </>
+         
         </Switch>
       </Router>
     </stateContext.Provider>

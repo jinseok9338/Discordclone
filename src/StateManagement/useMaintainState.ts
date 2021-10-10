@@ -5,7 +5,7 @@ import { stateContext } from "./context";
 
 
 const useMaintainState = () => {
-    const { state, dispatch } = useContext(stateContext)
+    const { state } = useContext(stateContext)
     const [mainState, setMaionState] = useState<{ user: userProfileType, chats: chatType[] }>(JSON.parse(sessionStorage.getItem('state')!) ? JSON.parse(sessionStorage.getItem('state')!) : {})
 
     useEffect(() => {
@@ -13,8 +13,8 @@ const useMaintainState = () => {
         // What the fuck
         sessionStorage.setItem('state', JSON.stringify(state));
         setMaionState(JSON.parse(sessionStorage.getItem('state')!));
-    }, [state, mainState]);
-    return { mainState}
+    }, [mainState]);
+    return {mainState}
 }
 
 export default  useMaintainState

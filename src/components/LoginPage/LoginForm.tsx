@@ -17,7 +17,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { SetUserFunction } = useDispatch()
-  const { state,dispatch } = useContext(stateContext)
+
 
   
 
@@ -31,7 +31,7 @@ const LoginForm = () => {
         // Signed in
         const userId = userCredential.user.uid
         SetUserFunction(userId);
-        history.push("/main")
+        history.push("/")
       })
       .catch((error) => {
         const errorMessage = error.message;
