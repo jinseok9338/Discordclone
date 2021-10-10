@@ -19,12 +19,7 @@ const LoginForm = () => {
   const { SetUserFunction } = useDispatch()
   const { state,dispatch } = useContext(stateContext)
 
-  useEffect(() => {
-    // Whenever state change you should theroretically setItem and retrieve Item but when the page is refreshed... You can't do that ... 
-    // What the fuck
-    sessionStorage.setItem('state', JSON.stringify(state));
-
-  }, [state]);
+  
 
 
 
