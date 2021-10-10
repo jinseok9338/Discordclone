@@ -1,18 +1,23 @@
 import { chatType } from "../Types/chatType";
-import { userProfileType, userType } from "../Types/userType";
+import { userProfileType } from "../Types/userType";
+
 
 export enum ActionType {
     SetUser,
+    RetrieveState
 }
 
 export interface SetUser {
-    type: ActionType.SetUser;
+    type: "SET_USER"
     payload: userProfileType;
 }
 
-// export interface AddChats {
-//     type: ActionType.AddChats;
-//     payload: chatType
-// }
+export interface RetrieveState {
+    type: "RETRIEVE_STATE"
+    payload: {
+        user: userProfileType,
+        chats:chatType[]
+    }
+}
 
-export type StateActions = SetUser 
+export type StateActions = SetUser | RetrieveState

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { stateContext } from "../../../../StateManagement/context";
 import Friends from "./Friends";
 
 const StyledFriendiconBox = styled.div`
@@ -42,15 +44,17 @@ const StyledP = styled.p`
 `;
 
 const FriendsList = () => {
+  const { state:{user:{friends}}, dispatch } = useContext(stateContext)
+
   return (
     <>
       <StyledFriendiconBox>
         <FriendsIcon />
         <StyledP>Friends</StyledP>
       </StyledFriendiconBox>
-      <Friends id={1} /> {/*This is Friends List */}
-      <Friends id={2} />
-      <Friends id={3} />
+      {friends && 
+        friends.map((friend) => (<Friends id={friends.indexOf(friend)} friend={friend} />))
+      }
     </>
   );
 };

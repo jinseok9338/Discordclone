@@ -1,19 +1,22 @@
+import { chatType } from "../Types/chatType";
 import { userProfileType } from "../Types/userType";
 import { ActionType, StateActions } from "./action";
 import { State } from "./state";
 
 
-//TODO Making Dispatch for the chats and user
 
 
 export const stateReducer =  (state: State, action: StateActions): State => {
     
     switch (action.type) {
-        case ActionType.SetUser:
+        case "SET_USER":
             const user = action.payload;
             return {...state, user}
           
-
+        case "RETRIEVE_STATE":
+            const RetrievedState = action.payload;
+            return RetrievedState
+        
         default:
             
             return state;
@@ -33,8 +36,11 @@ export const SetUser = (user: userProfileType) => {
     })
 };
 
-// export const AddChats = (chat: chatType) => ({
-//     type: ActionType.AddChats,
-//     payload: chat,
-// });
+export const RetrieveState = (state: {
+    user: userProfileType,
+    chats: chatType[]
+}) => ({
+    type: ActionType.RetrieveState,
+    payload: state,
+});
 

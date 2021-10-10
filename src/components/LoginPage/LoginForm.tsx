@@ -1,11 +1,12 @@
 import { Auth,  signInWithEmailAndPassword } from "firebase/auth";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StyledLoginFormContainer, DiscordIcon, InputContainer, UserIcon, Input, PasswordIcon, ErrorSpan, StyledButton, Login, ForgotPassword, WantToSignUp } from "./StyledLoginForm";
 import { ErrorType } from "../SignUpForm/StyledSignUpForm";
 import { useHistory } from "react-router";
 import { auth } from "../../firebase/firebase";
-import  useDispatch, { useDispatchFunctionContext } from "../../StateManagement/useDispatch";
+import  useDispatch from "../../StateManagement/useDispatch";
 import { stateContext } from "../../StateManagement/context";
+
 // TODO Making animation and button Clckiable and loading 
 
 
@@ -16,13 +17,23 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { SetUserFunction } = useDispatch()
+  const { state,dispatch } = useContext(stateContext)
+
+  useEffect(() => {
+    // Whenever state change you should theroretically setItem and retrieve Item but when the page is refreshed... You can't do that ... 
+    // What the fuck
+    sessionStorage.setItem('state', JSON.stringify(state));
+
+  }, [state]);
+
+
 
   const history = useHistory()
 
   const handleSubmit = (auth:Auth, email:string,password:string) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-     
+        // Signed in
         const userId = userCredential.user.uid
         SetUserFunction(userId);
         history.push("/main")

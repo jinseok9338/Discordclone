@@ -20,7 +20,7 @@ const App =()=> {
       <Router>
       <Switch>
         {true && (
-          <Route path="/main" component={MainPage} />
+          <Route path="/" component={MainPage} />
         )}
           <>
             <Route path="/Login" component={LoginPage} />
