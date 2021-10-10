@@ -1,27 +1,28 @@
-import { useContext, useState } from "react";
+
 import { useHistory } from "react-router-dom";
-import styled from "styled-components";
 import { validateConfirmPassword, validateEmail, validatePassword } from "../../utils/utils";
 import { getAuth, createUserWithEmailAndPassword, Auth } from "firebase/auth";
 import { ErrorType, StyledLoginFormContainer, DiscordIcon, InputContainer, UserIcon, Input, PasswordIcon, ErrorSpan, StyledButton, Login, WantToSignUp } from "./StyledSignUpForm";
 // TODO Making Loading spinner and better transition : When making animation
-import { collection, doc, setDoc } from "firebase/firestore";
+import {  doc, setDoc } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 import { userProfileType } from "../../Types/userType";
-import { stateContext } from "../../StateManagement/context";
-import { SetUser } from "../../StateManagement/reducer";
+import { useState } from "react";
+import useDispatch from "../../StateManagement/useDispatch";
+
 
 
 
 const SignUpForm = () => {
+  const { SetUserFunction } = useDispatch()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState({} as ErrorType);
   const auth = getAuth();
-  const { state, dispatch } = useContext(stateContext)
+ 
   
-  console.log(state)
+ 
 
   const history = useHistory()
 
@@ -40,10 +41,11 @@ const SignUpForm = () => {
             displayName: user.displayName || user.email!.substr(0, user.email!.indexOf('@')),
             email:user.email,
             friends:[],
-            profilePic: user.photoURL || `https://avatars.dicebear.com/api/initials/${user.email}.svg`
+            profilePic: user.photoURL || `https://avatars.dicebear.com/api/initials/${user.email}.svg`,
+            chatRooms:[]
           } as userProfileType
           await setDoc(doc(firestore, "users", user.uid), data);
-          dispatch(SetUser(user.uid))
+          SetUserFunction(user.uid)
           alert("user Created")
           setEmail("")
           setPassword("")

@@ -13,5 +13,6 @@ export type userProfileType = {
         displayName: string,
         friends: userType[]
         FriendsRequest: userType[]
-        FriendsRequestSent: userType[]
+    FriendsRequestSent: userType[]
+        chatRooms:string[]
 }
