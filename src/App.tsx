@@ -12,7 +12,7 @@ import { stateContext } from "./StateManagement/context";
 
 const App =()=> {
   
-  const [state, dispatch] = useReducer(stateReducer, initialState) // Can't use async in useReducer... Shit ... 
+  const [state, dispatch] = useReducer(stateReducer, initialState)  
   
   return (
     < stateContext.Provider value = {{ state, dispatch }

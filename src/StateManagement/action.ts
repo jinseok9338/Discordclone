@@ -1,5 +1,5 @@
 import { chatType } from "../Types/chatType";
-import { userType } from "../Types/userType";
+import { userProfileType, userType } from "../Types/userType";
 
 export enum ActionType {
     SetUser,
@@ -7,7 +7,7 @@ export enum ActionType {
 
 export interface SetUser {
     type: ActionType.SetUser;
-    payload: string;
+    payload: userProfileType;
 }
 
 // export interface AddChats {
