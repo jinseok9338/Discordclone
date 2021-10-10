@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useMaintainState from "../../../../hooks/useMaintainState";
 import AddServer from "../AddServer";
 import Avatar from "../Avatar";
 import AvatarGroup from "../AvatarGroup";
@@ -16,11 +17,12 @@ export const StyledServersNavigation = styled.div`
 `;
 
 const ServserNavigation = () => {
+  const { mainState: {chats} } = useMaintainState()
   return (
     <StyledServersNavigation>
-      <Avatar id={0} />
-      <Avatar id={1} />
-      <AvatarGroup id={3} />
+      {chats && chats.map((chat) => (
+        chat.users.length > 0 ? <AvatarGroup id={3} chat={chat} /> : <Avatar id={0} chat={chat} />
+      ))}
       <AddServer />
     </StyledServersNavigation>
   );

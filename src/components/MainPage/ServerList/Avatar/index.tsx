@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { chatType } from "../../../../Types/chatType";
 
 export const StyledAvatarIcon = styled.img.attrs(
   (props: { id: number }) => props
@@ -11,10 +12,16 @@ export const StyledAvatarIcon = styled.img.attrs(
   top: ${(props) => (props.id === 0 ? "0rem" : "0.5rem")};
 `;
 
-const Avatar = ({ id }: { id: number }) => {
+interface AvatarProps {
+  id: number;
+  chat:chatType
+}
+
+const Avatar = ({ id,chat }: AvatarProps) => {
+
   return (
     <StyledAvatarIcon
-      src="image/avatar.png"
+      src={chat.users[0]?.profilePic}
       alt="Avatar"
       id={id}
     ></StyledAvatarIcon>

@@ -5,15 +5,13 @@ import MainContent from "../../components/MainPage/MainContent";
 import ServerList from "../../components/MainPage/ServerList";
 import TopNavigation from "../../components/MainPage/TopNavigation";
 import { stateContext } from "../../StateManagement/context";
-import useMaintainState from "../../StateManagement/useMaintainState";
+import useMaintainState from "../../hooks/useMaintainState";
 import { chatType } from "../../Types/chatType";
 import { userProfileType } from "../../Types/userType";
 import { MainPageBackground } from "./styledMainPage";
 
 const MainPage = () => {
-  const {mainState} = useMaintainState()
   
-  console.log(mainState, "state")
   
   return (
     <MainPageBackground>

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
+import useMaintainState from "../../../../hooks/useMaintainState";
 import { stateContext } from "../../../../StateManagement/context";
 import Friends from "./Friends";
 
@@ -44,7 +45,7 @@ const StyledP = styled.p`
 `;
 
 const FriendsList = () => {
-  const { state:{user:{friends}}, dispatch } = useContext(stateContext)
+  const { mainState:{user:{friends}} } = useMaintainState() // One of the best Hook I have ever made ... hook is awesome
 
   return (
     <>

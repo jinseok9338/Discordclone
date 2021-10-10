@@ -8,7 +8,7 @@ import {  doc, setDoc } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 import { userProfileType } from "../../Types/userType";
 import { useState } from "react";
-import useDispatch from "../../StateManagement/useDispatch";
+import useDispatch from "../../hooks/useDispatch";
 
 
 

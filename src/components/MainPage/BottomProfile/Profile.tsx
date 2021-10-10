@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useMaintainState from "../../../hooks/useMaintainState";
 
 const StyledProfileDiv = styled.div`
   width: 91px;
@@ -36,12 +37,13 @@ const StyledProfileNumP = styled.p`
 `;
 
 const Profile = () => {
+  const { mainState:{user:{displayName,userId,profilePic}} } = useMaintainState()
   return (
     <StyledProfileDiv>
-      <StyledProfileAvater src="/image/avater2.jpg" alt="ProfilePic" />
+      <StyledProfileAvater src={profilePic} alt="ProfilePic" />
       <StyledProfileDetailDiv>
-        <StyledProfileP>Jinseok9338</StyledProfileP>
-        <StyledProfileNumP>#50021</StyledProfileNumP>
+        <StyledProfileP>{displayName}</StyledProfileP>
+        <StyledProfileNumP>{`#${userId.slice(0,5)}`}</StyledProfileNumP>
       </StyledProfileDetailDiv>
     </StyledProfileDiv>
   );

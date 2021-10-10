@@ -1,7 +1,7 @@
 // making context with dispatch and add user Function // THis is better for simplicity
 
 import { useContext } from "react";
-import { stateContext } from "./context";
+import { stateContext } from "../StateManagement/context";
 import { doc, getDoc } from "firebase/firestore";
 import {firestore} from "../firebase/firebase"
 import { userProfileType } from "../Types/userType";

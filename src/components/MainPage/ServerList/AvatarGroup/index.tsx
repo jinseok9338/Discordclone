@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { chatType } from "../../../../Types/chatType";
 
 const AvatarGroupDivOutLayer = styled.div.attrs(
   (props: { id: number }) => props
@@ -37,14 +38,18 @@ const StyledAvatar = styled.img.attrs((props: { id: number }) => props)`
   border-radius: 50%;
 `;
 
-const AvatarGroup = ({ id }: { id: number }) => {
+interface AvatarGroupProps {
+  id: number;
+  chat: chatType
+}
+
+const AvatarGroup = ({ id, chat }: AvatarGroupProps) => {
   return (
     <AvatarGroupDivOutLayer id={id}>
       <AvatarGroupDivInLayer>
-        <StyledAvatar src="/image/avatar.png" />
-        <StyledAvatar src="/image/avatar.png" />
-        <StyledAvatar src="/image/avatar.png" />
-        <StyledAvatar src="/image/avatar.png" />
+        {chat.users.slice(0, 4).map((user) => (
+          <StyledAvatar src={user.profilePic} />
+        ))}
       </AvatarGroupDivInLayer>
     </AvatarGroupDivOutLayer>
   );

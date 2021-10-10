@@ -4,7 +4,7 @@ import { StyledLoginFormContainer, DiscordIcon, InputContainer, UserIcon, Input,
 import { ErrorType } from "../SignUpForm/StyledSignUpForm";
 import { useHistory } from "react-router";
 import { auth } from "../../firebase/firebase";
-import  useDispatch from "../../StateManagement/useDispatch";
+import  useDispatch from "../../hooks/useDispatch";
 import { stateContext } from "../../StateManagement/context";
 
 // TODO Making animation and button Clckiable and loading 
