@@ -17,10 +17,10 @@ export const StyledServersNavigation = styled.div`
 `;
 
 const ServserNavigation = () => {
-  const { mainState: {chats} } = useMaintainState()
+  const { mainState } = useMaintainState()
   return (
     <StyledServersNavigation>
-      {chats && chats.map((chat) => (
+      {mainState?.chats && mainState?.chats.map((chat) => (
         chat.users.length > 0 ? <AvatarGroup id={3} chat={chat} /> : <Avatar id={0} chat={chat} />
       ))}
       <AddServer />

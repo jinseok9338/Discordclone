@@ -46,16 +46,16 @@ const EmptyContainer = styled.div`
 `;
 
 const Chats = ({chatId}:{chatId:string}) => {
-  const { mainState: { user: { userId }, chats } } = useMaintainState()
+  const { mainState } = useMaintainState()
   
-  const selectedChat = chats.filter((chat) => chat.chatId === chatId)[0]
+  const selectedChat = mainState?.chats?.filter((chat) => chat.chatId === chatId)[0]
   
   return (
     <StyledChatsContainer>
       <ChatsInput />
       {selectedChat && (
         selectedChat.chats.map((chat) => (
-          chat.user.userId === userId ? <MeChat /> : <OtherPersonChat />
+          chat.user.userId === mainState?.user?.userId ? <MeChat /> : <OtherPersonChat />
         ))
 )}
       <DayContainer>

@@ -37,13 +37,13 @@ const StyledProfileNumP = styled.p`
 `;
 
 const Profile = () => {
-  const { mainState:{user:{displayName,userId,profilePic}} } = useMaintainState()
+  const { mainState } = useMaintainState()
   return (
     <StyledProfileDiv>
-      <StyledProfileAvater src={profilePic} alt="ProfilePic" />
+      <StyledProfileAvater src={mainState?.user?.profilePic} alt="ProfilePic" />
       <StyledProfileDetailDiv>
-        <StyledProfileP>{displayName}</StyledProfileP>
-        <StyledProfileNumP>{`#${userId.slice(0,5)}`}</StyledProfileNumP>
+        <StyledProfileP>{mainState?.user?.displayName}</StyledProfileP>
+        <StyledProfileNumP>{`#${mainState?.user?.userId.slice(0,5)}`}</StyledProfileNumP>
       </StyledProfileDetailDiv>
     </StyledProfileDiv>
   );

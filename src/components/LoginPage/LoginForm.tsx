@@ -17,8 +17,9 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { SetUserFunction } = useDispatch()
+  const {state} = useContext(stateContext)
 
-
+console.log(state)
   
 
 
@@ -27,10 +28,10 @@ const LoginForm = () => {
 
   const handleSubmit = (auth:Auth, email:string,password:string) => {
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         // Signed in
         const userId = userCredential.user.uid
-        SetUserFunction(userId);
+        await SetUserFunction(userId);
         history.push("/")
       })
       .catch((error) => {

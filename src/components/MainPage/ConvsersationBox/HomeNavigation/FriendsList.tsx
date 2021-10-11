@@ -1,7 +1,6 @@
-import { useContext } from "react";
+import { User } from "@styled-icons/boxicons-regular";
 import styled from "styled-components";
 import useMaintainState from "../../../../hooks/useMaintainState";
-import { stateContext } from "../../../../StateManagement/context";
 import Friends from "./Friends";
 
 const StyledFriendiconBox = styled.div`
@@ -45,17 +44,18 @@ const StyledP = styled.p`
 `;
 
 const FriendsList = () => {
-  const { mainState:{user:{friends}} } = useMaintainState() // One of the best Hook I have ever made ... hook is awesome
-
+  const { mainState } = useMaintainState() // One of the best Hook I have ever made ... hook is awesome But we can't determine if the state exists yet
+  // Problem is very async 
+ 
   return (
     <>
       <StyledFriendiconBox>
         <FriendsIcon />
         <StyledP>Friends</StyledP>
       </StyledFriendiconBox>
-      {friends && 
-        friends.map((friend) => (<Friends id={friends.indexOf(friend)} friend={friend} />))
-      }
+      {mainState?.user?.friends ?
+        mainState?.user?.friends?.map((friend) => (<Friends id={mainState?.user?.friends?.indexOf(friend)} friend={friend} />))
+      :null}
     </>
   );
 };
