@@ -3,5 +3,11 @@
 // make retrieve state function
 // Make chats to subscribe to the database 
 // Connect to firestore emulator
+// Create Dummy data to work with
 
 2. Loading Spinner 2021 10 9
+
+3. working with websocket to know the other person is typing 
+
+4. Video Chat UI 
+5 Video Chat Function
