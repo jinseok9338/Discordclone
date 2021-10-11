@@ -61,27 +61,26 @@ const Chats = ({ chatId }: { chatId: string }) => {
  
 
 
-  useEffect(() => {
-    if (mainState?.user?.chatRooms?.length !== 0) {
-      const chatsToQuery = query(collection(firestore, "chats"), where("chatId", "in", mainState?.user?.chatRooms));
-      const unsubscribe = onSnapshot(chatsToQuery, (querySnapshot) => {
-        const selectedChats = [] as chatType[];
-        querySnapshot.forEach((doc) => {
-          selectedChats.push(doc.data() as chatType);
-        });
-        setUserChats(selectedChats)
-        return () => unsubscribe()
-      });
-    } else {
-      setUserChats([])
-    }
+  // useEffect(() => {
+  //   if (mainState?.user?.chatRooms?.length !== 0) {
+  //     const chatsToQuery = query(collection(firestore, "chats"), where("chatId", "in", mainState?.user?.chatRooms));
+  //     const unsubscribe = onSnapshot(chatsToQuery, (querySnapshot) => {
+  //       const selectedChats = [] as chatType[];
+  //       querySnapshot.forEach((doc) => {
+  //         selectedChats.push(doc.data() as chatType);
+  //       });
+  //       setUserChats(selectedChats)
+  //       return () => unsubscribe()
+  //     });
+  //   } else {
+  //     setUserChats([])
+  //   }
   
 
-    //remember to unsubscribe from your realtime listener on unmount or you will create a memory leak
+  //   // remember to unsubscribe from your realtime listener on unmount or you will create a memory leak
     
-  }, []);
- const discordApp ="discordApp"
-  
+  // }, []);
+
   
   const selectedChat = userChats?.filter((chat) => chat.chatId === chatId)[0]
   
