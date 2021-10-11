@@ -44,8 +44,7 @@ const StyledP = styled.p`
 `;
 
 const FriendsList = () => {
-  const { mainState } = useMaintainState() // One of the best Hook I have ever made ... hook is awesome But we can't determine if the state exists yet
-  // Problem is very async 
+  const { mainState } = useMaintainState() // One of the best Hook I have ever made ... hook is awesome But we can't determine if the state
  
   return (
     <>

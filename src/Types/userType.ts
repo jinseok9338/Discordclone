@@ -14,5 +14,5 @@ export type userProfileType = {
         friends: userType[]
         FriendsRequest: userType[]
     FriendsRequestSent: userType[]
-        chatRooms:string[]
+        chatRooms:string[] // Has chat room Id... 
 }

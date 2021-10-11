@@ -3,6 +3,12 @@ import useMaintainState from "../../../hooks/useMaintainState";
 import ChatsInput from "./ChatsInput";
 import MeChat from "./MeChat";
 import OtherPersonChat from "./OtherPersonChat";
+import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { firestore } from "../../../firebase/firebase";
+import { chatType } from "../../../Types/chatType";
+import { useEffect, useState } from "react";
+
+
  // TODO Day container calculate the day
 export const StyledChatsContainer = styled.div`
   width: 1190px;
@@ -45,17 +51,46 @@ const EmptyContainer = styled.div`
   padding: 1rem;
 `;
 
-const Chats = ({chatId}:{chatId:string}) => {
+
+
+const Chats = ({ chatId }: { chatId: string }) => {
+
+  const [userChats, setUserChats] = useState([] as chatType[])
   const { mainState } = useMaintainState()
+
+ 
+
+
+  useEffect(() => {
+    if (mainState?.user?.chatRooms?.length !== 0) {
+      const chatsToQuery = query(collection(firestore, "chats"), where("chatId", "in", mainState?.user?.chatRooms));
+      const unsubscribe = onSnapshot(chatsToQuery, (querySnapshot) => {
+        const selectedChats = [] as chatType[];
+        querySnapshot.forEach((doc) => {
+          selectedChats.push(doc.data() as chatType);
+        });
+        setUserChats(selectedChats)
+        return () => unsubscribe()
+      });
+    } else {
+      setUserChats([])
+    }
   
-  const selectedChat = mainState?.chats?.filter((chat) => chat.chatId === chatId)[0]
+
+    //remember to unsubscribe from your realtime listener on unmount or you will create a memory leak
+    
+  }, []);
+
+  
+  
+  const selectedChat = userChats?.filter((chat) => chat.chatId === chatId)[0]
   
   return (
     <StyledChatsContainer>
       <ChatsInput />
       {selectedChat && (
         selectedChat.chats.map((chat) => (
-          chat.user.userId === mainState?.user?.userId ? <MeChat /> : <OtherPersonChat />
+          chat.user.userId === mainState?.user?.userId? <MeChat /> : <OtherPersonChat />
         ))
 )}
       <DayContainer>
