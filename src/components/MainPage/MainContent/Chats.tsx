@@ -80,7 +80,7 @@ const Chats = ({ chatId }: { chatId: string }) => {
     //remember to unsubscribe from your realtime listener on unmount or you will create a memory leak
     
   }, []);
-
+ const discordApp ="discordApp"
   
   
   const selectedChat = userChats?.filter((chat) => chat.chatId === chatId)[0]
