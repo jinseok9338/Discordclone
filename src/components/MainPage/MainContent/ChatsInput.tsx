@@ -47,12 +47,16 @@ const MicIcon = () => (
 );
 
 const StyledChatsInput = styled.input`
-  width: 132px;
+  width: 100%;
   height: 18px;
   color: black;
-  outline:none &:focus {
+  outline: none;
+  :focus {
     outline: none;
   }
+  box-shadow: none;
+  border-width: 0px;
+  border: none;
   margin-left: 0.7rem;
 `;
 const SendButtonContainer = styled.div`
