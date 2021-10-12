@@ -102,6 +102,7 @@ const SendIcon = () => (
 function ChatsInput({ chatId }: { chatId:string}) {
 
   const [message, setMessage] = useState('')
+  const [disabled, setDisabled] = useState(false);
  
   const { mainState } = useMaintainState()
   const handleSubmit = async (chatId:string) => {
@@ -119,8 +120,10 @@ function ChatsInput({ chatId }: { chatId:string}) {
       await updateDoc(chatDocRef, {
         chats: arrayUnion(chat)
       });
+      setMessage("");
     } catch (err: any) {
       console.log(err.message)
+      setDisabled(true)
     }
  
 
@@ -130,7 +133,7 @@ function ChatsInput({ chatId }: { chatId:string}) {
     <StyledChatsInputContainer>
       <FileIcon />
       <MicIcon />
-      <StyledChatsInput placeholder="Type a message ..." value ={message} onChange={(e)=>setMessage(e.target.value)} />
+      <StyledChatsInput placeholder={`${disabled? "Something is wrong" : "Type a message"}`} value={message} onChange={(e) => setMessage(e.target.value)} disabled={disabled} />
       <SendButtonContainer onClick={() => handleSubmit(chatId)}>
         <SendP>Send</SendP>
         <SendIcon />
