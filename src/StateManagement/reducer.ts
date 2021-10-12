@@ -13,9 +13,9 @@ export const stateReducer =  (state: State, action: StateActions): State => {
             const user = action.payload;
             return {...state, user}
           
-        case "RETRIEVE_STATE":
-            const RetrievedState = action.payload;
-            return RetrievedState
+        case "SET_CHATROOM":
+            const chatRoomId = action.payload 
+            return {...state, selctedChatRoom:chatRoomId}
         
         default:
             

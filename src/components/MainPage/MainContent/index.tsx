@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Active from "./Active";
 import Chats from "./Chats";
 import { StyledMainContent } from "./StyledMainContent";
 
 function MainContent() {
 
-// TODO need to make hook that forks chatId and automatically add the chats to the chats state ... This is brilliant  
+  
   return (
     <StyledMainContent>
-      <Chats chatId={""}/>
+      <Chats/>
       <Active />
     </StyledMainContent>
   );

@@ -12,12 +12,9 @@ export interface SetUser {
     payload: userProfileType;
 }
 
-export interface RetrieveState {
-    type: "RETRIEVE_STATE"
-    payload: {
-        user: userProfileType,
-        chats:chatType[]
-    }
+export interface SetChatRoom {
+    type: "SET_CHATROOM"
+    payload:string
 }
 
-export type StateActions = SetUser | RetrieveState
+export type StateActions = SetUser | SetChatRoom

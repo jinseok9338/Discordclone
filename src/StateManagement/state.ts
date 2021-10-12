@@ -4,11 +4,11 @@ import { userProfileType } from "../Types/userType";
 
 export interface State {
     user: userProfileType;
-    chats: chatType[]
+    selctedChatRoom: string
 }
 
 
 export const initialState = {
     user: {} as userProfileType,
-    chats: [] as chatType[]
+    selctedChatRoom: "" as string
 };

@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { stateContext } from "../../../../StateManagement/context";
 import { chatType } from "../../../../Types/chatType";
 
 const AvatarGroupDivOutLayer = styled.div.attrs(
@@ -28,6 +30,7 @@ const AvatarGroupDivInLayer = styled.div.attrs(
   grid-row-gap: 0.2rem;
   align-items: center;
   justify-content: center;
+  cursor:pointer;
 `;
 
 const StyledAvatar = styled.img.attrs((props: { id: number }) => props)`
@@ -40,12 +43,15 @@ const StyledAvatar = styled.img.attrs((props: { id: number }) => props)`
 
 interface AvatarGroupProps {
   id: number;
-  chat: chatType
+  chat: chatType;
+  chatRoomId: string;
 }
 
-const AvatarGroup = ({ id, chat }: AvatarGroupProps) => {
+const AvatarGroup = ({ id, chat,chatRoomId }: AvatarGroupProps) => {
+  const { dispatch } = useContext(stateContext)
+
   return (
-    <AvatarGroupDivOutLayer id={id}>
+    <AvatarGroupDivOutLayer id={id} onClick={dispatch({ type: "SET_CHATROOM", payload: chatRoomId})}>
       <AvatarGroupDivInLayer>
         {chat.users.slice(0, 4).map((user) => (
           <StyledAvatar src={user.profilePic} />

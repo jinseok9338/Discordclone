@@ -16,12 +16,14 @@ export const StyledServersNavigation = styled.div`
   top: 1rem;
 `;
 
+
+
 const ServserNavigation = () => {
-  const { mainState } = useMaintainState()
+  const { mainState,chats } = useMaintainState()
   return (
     <StyledServersNavigation>
-      {mainState?.chats && mainState?.chats.map((chat) => (
-        chat.users.length > 0 ? <AvatarGroup id={3} chat={chat} /> : <Avatar id={0} chat={chat} />
+      {mainState?.user?.chatRooms && chats.map((chat) => (
+        chat.users.length > 0 ? <AvatarGroup id={3} chat={chat} chatRoomId={mainState?.selctedChatRoom} /> : <Avatar chatRoomId={mainState?.selctedChatRoom} id={0} chat={chat} />
       ))}
       <AddServer />
     </StyledServersNavigation>

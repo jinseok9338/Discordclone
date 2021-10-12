@@ -1,0 +1,16 @@
+
+Todo:
+  ✔ Subsribe to the firestore chat -- chat main page @done(21-10-12 13:16)
+  ✔ make unsubscribe useEffect @done(21-10-12 13:16)
+  ✔ make list of chatRooms with serverlist @done(21-10-12 13:28)
+  ✔ moved the useEffect for subscription into useMaintainState @done(21-10-12 13:29)
+✔ SetSelectedChatRoomId dispatch @done(21-10-12 13:46)
+   ☐ make ChatRoomFunction and UI
+  ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)
+    ☐ working with websocket to know the other person is typing 
+  ☐ Have no chat UI Page for No Chat
+  ☐ calculate the day
+  ☐ make loading spinner/ animation
+  ☐ working with websocket to know the other person is typing 
+  
+
