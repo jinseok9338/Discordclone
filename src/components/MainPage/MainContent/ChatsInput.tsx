@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { firestore } from "../../../firebase/firebase";
 import useMaintainState from "../../../hooks/useMaintainState";
-import { chatType } from "../../../Types/chatType";
+
 
 
 const StyledChatsInputContainer = styled.div`
