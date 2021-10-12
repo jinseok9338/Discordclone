@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { firestore } from "../../../firebase/firebase";
+import useMaintainState from "../../../hooks/useMaintainState";
+import { chatType } from "../../../Types/chatType";
+
 
 const StyledChatsInputContainer = styled.div`
   width: 1180px;
@@ -94,13 +99,39 @@ const SendIcon = () => (
   </svg>
 );
 
-function ChatsInput() {
+function ChatsInput({ chatId }: { chatId:string}) {
+
+  const [message, setMessage] = useState('')
+ 
+  const { mainState } = useMaintainState()
+  const handleSubmit = async (chatId:string) => {
+    const chatDocRef = doc(firestore, "chats", chatId);
+    const chat = {
+      user: {
+        userId: mainState?.user?.userId,
+        profilePic: mainState?.user?.profilePic,
+        displayName: mainState?.user?.displayName,
+      },
+      sent: Date,
+      message
+    }
+    try {
+      await updateDoc(chatDocRef, {
+        chats: arrayUnion(chat)
+      });
+    } catch (err: any) {
+      console.log(err.message)
+    }
+ 
+
+  }
+
   return (
     <StyledChatsInputContainer>
       <FileIcon />
       <MicIcon />
-      <StyledChatsInput placeholder="Type a message ..." />
-      <SendButtonContainer>
+      <StyledChatsInput placeholder="Type a message ..." value ={message} onChange={(e)=>setMessage(e.target.value)} />
+      <SendButtonContainer onClick={() => handleSubmit(chatId)}>
         <SendP>Send</SendP>
         <SendIcon />
       </SendButtonContainer>

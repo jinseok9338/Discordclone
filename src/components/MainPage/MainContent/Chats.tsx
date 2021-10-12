@@ -86,7 +86,7 @@ const Chats = ({ chatId }: { chatId: string }) => {
   
   return (
     <StyledChatsContainer>
-      <ChatsInput />
+      <ChatsInput chatId={chatId} />
       {selectedChat && (
         selectedChat.chats.map((chat) => (
           chat.user.userId === mainState?.user?.userId? <MeChat /> : <OtherPersonChat />
