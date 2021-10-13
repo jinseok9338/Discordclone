@@ -8,7 +8,7 @@ const MakeChat = () => {
     <StyledMakeChat>
       <SearchBar />
       <FriendsListIcons />
-      <SelectButton />
+      <SelectButton  />
     </StyledMakeChat>
   );
 };
