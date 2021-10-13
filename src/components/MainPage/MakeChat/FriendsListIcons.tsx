@@ -1,5 +1,6 @@
 import React from "react";
 import useMaintainState from "../../../hooks/useMaintainState";
+import FriendsListIconAvatars from "./FriendsListIconAvatars";
 import {
   StyledFriendsListIconsContainer,
   StyledFriendsListIconsAvatar,
@@ -13,7 +14,6 @@ function FriendsListIcons() {
       {mainState?.user?.friends && mainState?.user?.friends?.map((friend) => (
         <StyledFriendsListIconsAvatar src={friend.profilePic} />
       )) }
-     
     </StyledFriendsListIconsContainer>
   );
 }

@@ -14,7 +14,7 @@ const ServerList = () => {
         <Devider />
         <ServserNavigation />
       </StyledServerList>
-      <MakeChat />
+   
     </>
   );
 };

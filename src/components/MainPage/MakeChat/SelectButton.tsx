@@ -1,7 +1,10 @@
 import React from "react";
-import { StyledSelectButton } from "./StyledMakeChat";
+import { StyledSelectButton, StyledSelectButtonContainer } from "./StyledMakeChat";
 function SelectButton() {
-  return <StyledSelectButton>Make a chat</StyledSelectButton>;
+  return (
+    <StyledSelectButtonContainer>
+      <StyledSelectButton>Make a chat</StyledSelectButton>
+    </StyledSelectButtonContainer>);
 }
 
 export default SelectButton;

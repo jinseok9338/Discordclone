@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NodePlus } from "@styled-icons/bootstrap";
+import { SetStateAction, useRef, useState } from "react";
 
 const StyledAddButton = styled.div`
   position: relative;
@@ -11,6 +12,7 @@ const StyledAddButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor:pointer;
 `;
 
 const PlusICon = styled(NodePlus)`
@@ -20,10 +22,15 @@ const PlusICon = styled(NodePlus)`
 `;
 
 const AddServer = () => {
+ 
   return (
-    <StyledAddButton>
+
+    
+    <StyledAddButton >
       <PlusICon />
-    </StyledAddButton>
+      </StyledAddButton>
+  
+    
   );
 };
 

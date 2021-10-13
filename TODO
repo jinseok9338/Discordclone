@@ -5,7 +5,8 @@ Todo:
   ✔ make list of chatRooms with serverlist @done(21-10-12 13:28)
   ✔ moved the useEffect for subscription into useMaintainState @done(21-10-12 13:29)
 ✔ SetSelectedChatRoomId dispatch @done(21-10-12 13:46)
-  ☐ make ChatRoomFunction and UI @workingon(21-10-12 14:29)
+  ✔ make ChatRoomFunction and UI @workingon(21-10-12 14:29) @done(21-10-13 11:00)
+  ☐ Make ChatRoomFunction with firestroe
   ☐ make autocomplete of friends list with array filter
   ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)
   ☐ working with websocket to know the other person is typing 
