@@ -8,8 +8,7 @@ import { firestore } from "../../../firebase/firebase";
 import { chatType } from "../../../Types/chatType";
 import { useEffect, useState } from "react";
 
-
- // TODO Day container calculate the day
+// TODO Day container calculate the day
 export const StyledChatsContainer = styled.div`
   width: 1190px;
   border-right: solid 1px rgb(226, 226, 226, 0.3);
@@ -51,28 +50,28 @@ const EmptyContainer = styled.div`
   padding: 1rem;
 `;
 
-
-// This is all the chats that are queried from the firestore 
+// This is all the chats that are queried from the firestore
 
 const Chats = () => {
+  const { mainState, chats } = useMaintainState();
 
+  const selectedChat = chats?.filter(
+    (chat) => chat.chatId === mainState.selctedChatRoom
+  )[0];
 
-  const { mainState,chats } = useMaintainState()
-
- 
-
-   const selectedChat = chats?.filter((chat) => chat.chatId === mainState.selctedChatRoom)[0]
-  
   return (
     <StyledChatsContainer>
       <ChatsInput chatId={"akkk"} />
-      {selectedChat && (
-        selectedChat.chats.map((chat) => (
-          chat.user.userId === mainState?.user?.userId? <MeChat /> : <OtherPersonChat />
-        ))
-)}
+      {selectedChat &&
+        selectedChat.chats.map((chat) =>
+          chat.user.userId === mainState?.user?.userId ? (
+            <MeChat />
+          ) : (
+            <OtherPersonChat />
+          )
+        )}
       <DayContainer>
-        <DayContainerP>Today</DayContainerP> 
+        <DayContainerP>Today</DayContainerP>
       </DayContainer>
       <EmptyContainer />
     </StyledChatsContainer>

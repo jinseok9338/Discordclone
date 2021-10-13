@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {  userType } from "../../../../Types/userType";
+import { userType } from "../../../../Types/userType";
 
 export const FriendsDiv = styled.div`
   position: relative;
@@ -43,16 +43,19 @@ interface FriendsPropsType {
   friend: userType;
 }
 
-const Friends = ({ id, friend:{displayName,profilePic,userId} }: FriendsPropsType) => {
+const Friends = ({
+  id,
+  friend: { displayName, profilePic, userId },
+}: FriendsPropsType) => {
   return (
     <FriendsDiv>
       <Avatar src={profilePic} alt="Avatar Image" />
       <FirendsDetailDiv>
         <FriendsName>{displayName}</FriendsName>
-        <FriendsDetail>{userId.slice(0,6)}</FriendsDetail>
+        <FriendsDetail>{userId.slice(0, 6)}</FriendsDetail>
       </FirendsDetailDiv>
     </FriendsDiv>
   );
-}; 
+};
 
 export default Friends;

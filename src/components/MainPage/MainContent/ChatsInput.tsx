@@ -4,8 +4,6 @@ import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { firestore } from "../../../firebase/firebase";
 import useMaintainState from "../../../hooks/useMaintainState";
 
-
-
 const StyledChatsInputContainer = styled.div`
   width: 1180px;
   height: 40px;
@@ -99,13 +97,12 @@ const SendIcon = () => (
   </svg>
 );
 
-function ChatsInput({ chatId }: { chatId:string}) {
-
-  const [message, setMessage] = useState('')
+function ChatsInput({ chatId }: { chatId: string }) {
+  const [message, setMessage] = useState("");
   const [disabled, setDisabled] = useState(false);
- 
-  const { mainState } = useMaintainState()
-  const handleSubmit = async (chatId:string) => {
+
+  const { mainState } = useMaintainState();
+  const handleSubmit = async (chatId: string) => {
     const chatDocRef = doc(firestore, "chats", chatId);
     const chat = {
       user: {
@@ -114,26 +111,29 @@ function ChatsInput({ chatId }: { chatId:string}) {
         displayName: mainState?.user?.displayName,
       },
       sent: Date,
-      message
-    }
+      message,
+    };
     try {
       await updateDoc(chatDocRef, {
-        chats: arrayUnion(chat)
+        chats: arrayUnion(chat),
       });
       setMessage("");
     } catch (err: any) {
-      console.log(err.message)
-      setDisabled(true)
+      console.log(err.message);
+      setDisabled(true);
     }
- 
-
-  }
+  };
 
   return (
     <StyledChatsInputContainer>
       <FileIcon />
       <MicIcon />
-      <StyledChatsInput placeholder={`${disabled? "Something is wrong" : "Type a message"}`} value={message} onChange={(e) => setMessage(e.target.value)} disabled={disabled} />
+      <StyledChatsInput
+        placeholder={`${disabled ? "Something is wrong" : "Type a message"}`}
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        disabled={disabled}
+      />
       <SendButtonContainer onClick={() => handleSubmit(chatId)}>
         <SendP>Send</SendP>
         <SendIcon />

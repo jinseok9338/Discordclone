@@ -4,11 +4,9 @@ import Chats from "./Chats";
 import { StyledMainContent } from "./StyledMainContent";
 
 function MainContent() {
-
-  
   return (
     <StyledMainContent>
-      <Chats/>
+      <Chats />
       <Active />
     </StyledMainContent>
   );

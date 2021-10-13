@@ -1,11 +1,14 @@
-import { StyledSearchBarContainer, StyledSearchBarInput } from "./StyledMakeChat"
+import {
+  StyledSearchBarContainer,
+  StyledSearchBarInput,
+} from "./StyledMakeChat";
 
 const SearchBar = () => {
-    return (
-        <StyledSearchBarContainer>
-            <StyledSearchBarInput/>
-        </StyledSearchBarContainer>
-    )
-}
+  return (
+    <StyledSearchBarContainer>
+      <StyledSearchBarInput />
+    </StyledSearchBarContainer>
+  );
+};
 
-export default SearchBar
+export default SearchBar;

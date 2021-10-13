@@ -44,17 +44,22 @@ const StyledP = styled.p`
 `;
 
 const FriendsList = () => {
-  const { mainState } = useMaintainState() // One of the best Hook I have ever made ... hook is awesome But we can't determine if the state
- 
+  const { mainState } = useMaintainState(); // One of the best Hook I have ever made ... hook is awesome But we can't determine if the state
+
   return (
     <>
       <StyledFriendiconBox>
         <FriendsIcon />
         <StyledP>Friends</StyledP>
       </StyledFriendiconBox>
-      {mainState?.user?.friends ?
-        mainState?.user?.friends?.map((friend) => (<Friends id={mainState?.user?.friends?.indexOf(friend)} friend={friend} />))
-      :null}
+      {mainState?.user?.friends
+        ? mainState?.user?.friends?.map((friend) => (
+            <Friends
+              id={mainState?.user?.friends?.indexOf(friend)}
+              friend={friend}
+            />
+          ))
+        : null}
     </>
   );
 };

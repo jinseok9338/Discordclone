@@ -6,14 +6,15 @@ import ServserNavigation from "./ServersNavigation";
 import { StyledServerList } from "./styledServerList";
 
 const ServerList = () => {
-  return (<>
-    <StyledServerList>
-      <Heading />
-      <HomeIcon />
-      <Devider />
-      <ServserNavigation />
-    </StyledServerList>
-    <MakeChat />
+  return (
+    <>
+      <StyledServerList>
+        <Heading />
+        <HomeIcon />
+        <Devider />
+        <ServserNavigation />
+      </StyledServerList>
+      <MakeChat />
     </>
   );
 };

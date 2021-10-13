@@ -7,8 +7,6 @@ import TopNavigation from "../../components/MainPage/TopNavigation";
 import { MainPageBackground } from "./styledMainPage";
 
 const MainPage = () => {
-  
-  
   return (
     <MainPageBackground>
       <TopNavigation />

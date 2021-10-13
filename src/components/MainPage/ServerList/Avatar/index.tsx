@@ -3,7 +3,6 @@ import { chatType } from "../../../../Types/chatType";
 import { stateContext } from "../../../../StateManagement/context";
 import { useContext } from "react";
 
-
 export const StyledAvatarIcon = styled.img.attrs(
   (props: { id: number }) => props
 )`
@@ -13,7 +12,7 @@ export const StyledAvatarIcon = styled.img.attrs(
   height: 50px;
   border-radius: 50%;
   top: ${(props) => (props.id === 0 ? "0rem" : "0.5rem")};
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 interface AvatarProps {
@@ -22,8 +21,8 @@ interface AvatarProps {
   chatRoomId: string;
 }
 
-const Avatar = ({ id,chat,chatRoomId }: AvatarProps) => {
-  const { dispatch } = useContext(stateContext)
+const Avatar = ({ id, chat, chatRoomId }: AvatarProps) => {
+  const { dispatch } = useContext(stateContext);
 
   return (
     <StyledAvatarIcon
