@@ -50,10 +50,12 @@ export const StyledFriendsListIconsContainer = styled.div`
   justify-items: center;
 `;
 
-export const StyledFriendsListIconsAvatar = styled.img`
+export const StyledFriendsListIconsAvatar = styled.img.attrs(
+  (props: { selected: boolean }) => props)`
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  outline: ${(props) => props.selected ? "2px solid #27118899" : "none"};
 `;
 
 export const StyledSelectButtonContainer = styled.div`
