@@ -18,13 +18,18 @@ color:white;
 `
 
 
-export const imageContainer = styled.div`
-height:50px;
-width:50px;
- border-radius: 50px;
+export const ImageContainer = styled.div.attrs(
+    (props: { selected: boolean }) => props)`
+height:60px;
+width:60px;
+ border-radius: 60px;
     box-sizing: border-box;
-    background-color: #DDD;
-    border: 5px solid #cfd8dc;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+      border: ${(props) => props.selected ? "5px solid #082f3f" : "none"};
+
+
 `
 
 interface FriendsListIconAvatarsProps {
@@ -38,9 +43,9 @@ interface FriendsListIconAvatarsProps {
 function FriendsListIconAvatars({ src, selected, displayName }: FriendsListIconAvatarsProps) {
     return (
         <FriendsListIconAvatarsContainer >
-            <imageContainer>
-            <StyledFriendsListIconsAvatar src={src} selected={selected} />
-          </imageContainer>
+            <ImageContainer selected={selected}>
+            <StyledFriendsListIconsAvatar src={src}  />
+            </ImageContainer>
             <FriendsListIconAvatarsName>{displayName}</FriendsListIconAvatarsName>
         </FriendsListIconAvatarsContainer>
     )
