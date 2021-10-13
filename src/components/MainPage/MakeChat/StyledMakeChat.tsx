@@ -8,6 +8,7 @@ export const StyledMakeChat = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 15px;
 `;
 
 export const StyledSearchBarContainer = styled.div`
@@ -16,9 +17,7 @@ export const StyledSearchBarContainer = styled.div`
   background-color: #202225;
   display:flex;
   align-items: center;
-  
-
- 
+   border-radius: 15px;
 `;
 
 export const StyledSearchBarInput = styled.input`

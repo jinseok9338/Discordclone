@@ -42,6 +42,7 @@ const ServserNavigation = () => {
         trigger={<div><AddServer></AddServer></div>}
         position="right top"
         on="click"
+        
         closeOnDocumentClick
         mouseLeaveDelay={300}
         mouseEnterDelay={0}
