@@ -12,7 +12,9 @@ export const stateReducer = (state: State, action: StateActions): State => {
     case "SET_CHATROOM":
       const chatRoomId = action.payload;
       return { ...state, selctedChatRoom: chatRoomId };
-
+    case "OPEN_MAKECHAT":
+      const open = action.payload;
+      return {...state,open}
     default:
       return state;
   }
@@ -21,15 +23,22 @@ export const stateReducer = (state: State, action: StateActions): State => {
 // helper functions to simplify the caller
 export const SetUser = (user: userProfileType) => {
   return {
-    type: ActionType.SetUser,
+    type: "SET_USER",
     payload: user,
   };
 };
 
-export const RetrieveState = (state: {
-  user: userProfileType;
-  chats: chatType[];
-}) => ({
-  type: ActionType.RetrieveState,
-  payload: state,
-});
+export const SetChatRoom = (chatRoomId: string) => {
+  return {
+    type: "SET_CHATROOM",
+    payload: chatRoomId,
+  };
+};
+
+export const OpenMakeChat = (open: boolean) => {
+  return {
+    type: "OPEN_MAKECHAT",
+    payload: open,
+  };
+};
+

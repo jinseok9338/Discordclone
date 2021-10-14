@@ -3,7 +3,8 @@ import { userProfileType } from "../Types/userType";
 
 export enum ActionType {
   SetUser,
-  RetrieveState,
+  SetChatRoom,
+  OpenMakeChat
 }
 
 export interface SetUser {
@@ -16,4 +17,11 @@ export interface SetChatRoom {
   payload: string;
 }
 
-export type StateActions = SetUser | SetChatRoom;
+export interface OpenMakeChat {
+  type: "OPEN_MAKECHAT";
+  payload:boolean
+}
+
+
+
+export type StateActions = SetUser | SetChatRoom | OpenMakeChat;
