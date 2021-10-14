@@ -1,11 +1,8 @@
-import React, { useState } from "react";
 import useMaintainState from "../../../hooks/useMaintainState";
 import useSelected from "../../../hooks/useSelected";
-import { userType } from "../../../Types/userType";
 import FriendsListIconAvatars from "./FriendsListIconAvatars";
 import {
-  StyledFriendsListIconsContainer,
-  StyledFriendsListIconsAvatar,
+  StyledFriendsListIconsContainer
 } from "./StyledMakeChat";
 
 function FriendsListIcons() {

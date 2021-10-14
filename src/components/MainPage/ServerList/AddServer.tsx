@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { NodePlus } from "@styled-icons/bootstrap";
-import { SetStateAction, useRef, useState } from "react";
 
 const StyledAddButton = styled.div`
   position: relative;

@@ -7,7 +7,6 @@ import { firestore } from "../../../firebase/firebase";
 import { v4 as uuidv4 } from 'uuid';
 import { chatType } from "../../../Types/chatType";
 import useMaintainState from "../../../hooks/useMaintainState";
-import { OpenMakeChat } from "../../../StateManagement/reducer";
 import { stateContext } from "../../../StateManagement/context";
 
 

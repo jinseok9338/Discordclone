@@ -6,7 +6,7 @@ import { query, collection, where, onSnapshot } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 
 const useMaintainState = () => {
-  const { state, dispatch } = useContext(stateContext);
+  const { state } = useContext(stateContext);
   const [mainState, setMaintainState] = useState<{
     user: userProfileType;
     selctedChatRoom: string;

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Active from "./Active";
 import Chats from "./Chats";
 import { StyledMainContent } from "./StyledMainContent";

@@ -1,4 +1,3 @@
-import { User } from "@styled-icons/boxicons-regular";
 import styled from "styled-components";
 import useMaintainState from "../../../../hooks/useMaintainState";
 import Friends from "./Friends";

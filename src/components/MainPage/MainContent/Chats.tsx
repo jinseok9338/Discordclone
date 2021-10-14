@@ -3,10 +3,6 @@ import useMaintainState from "../../../hooks/useMaintainState";
 import ChatsInput from "./ChatsInput";
 import MeChat from "./MeChat";
 import OtherPersonChat from "./OtherPersonChat";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
-import { firestore } from "../../../firebase/firebase";
-import { chatType } from "../../../Types/chatType";
-import { useEffect, useState } from "react";
 
 // TODO Day container calculate the day
 export const StyledChatsContainer = styled.div`

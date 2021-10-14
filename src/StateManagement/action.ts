@@ -1,4 +1,3 @@
-import { chatType } from "../Types/chatType";
 import { userProfileType } from "../Types/userType";
 
 export enum ActionType {

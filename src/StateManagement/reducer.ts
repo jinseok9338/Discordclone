@@ -1,6 +1,5 @@
-import { chatType } from "../Types/chatType";
 import { userProfileType } from "../Types/userType";
-import { ActionType, StateActions } from "./action";
+import {  StateActions } from "./action";
 import { State } from "./state";
 
 export const stateReducer = (state: State, action: StateActions): State => {

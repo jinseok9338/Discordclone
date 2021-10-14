@@ -1,5 +1,5 @@
 import { Auth, signInWithEmailAndPassword } from "firebase/auth";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import {
   StyledLoginFormContainer,
   DiscordIcon,

@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpFormPage from "./pages/SignUpPage";
 import { useReducer } from "react";
 import { stateReducer } from "./StateManagement/reducer";
-import { initialState, State } from "./StateManagement/state";
+import { initialState } from "./StateManagement/state";
 import { stateContext } from "./StateManagement/context";
 
 const App = () => {
