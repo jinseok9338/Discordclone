@@ -15,7 +15,6 @@ function SelectButton() {
   const { selected } = useSelected()
   const { mainState } = useMaintainState()
   const { state, dispatch } = useContext(stateContext);
-console.log(state.open)
 
   const MakeChatRoom = async (selected: userType[]) => {
   
@@ -52,7 +51,7 @@ console.log(state.open)
 
   return (
     <StyledSelectButtonContainer>
-      <StyledSelectButton onClick={() => MakeChatRoom(selected) }   >Make a chat</StyledSelectButton>
+      <StyledSelectButton onClick={() => MakeChatRoom(selected) }>Make a chat</StyledSelectButton>
     </StyledSelectButtonContainer>);
 }
 

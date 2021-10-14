@@ -1,4 +1,6 @@
+import Popup from "reactjs-popup";
 import styled from "styled-components";
+import AddFriendsMenu from "./AddFriendsMenu";
 
 const StyledTopbarActionDiv = styled.div`
   display: flex;
@@ -39,6 +41,7 @@ const AddFriendsButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor:pointer;
 `;
 
 const TopbarAction = () => {
@@ -49,11 +52,26 @@ const TopbarAction = () => {
       </OnlineHighLightedDiv>
       <TopbarActionP>All</TopbarActionP>
       <TopbarActionP>Blocked</TopbarActionP>
-      <AddFriendsButton>
-        <OnlineHighLightedP>Add Friends</OnlineHighLightedP>
-      </AddFriendsButton>
+      <Popup
+        trigger={() =><div> <AddFriendsButton>
+          <OnlineHighLightedP>Add Friends</OnlineHighLightedP>
+        </AddFriendsButton></div>}
+        position="right top"
+        on="click"
+        closeOnDocumentClick
+        mouseLeaveDelay={300}
+        mouseEnterDelay={0}
+        contentStyle={{ padding: '0px', border: 'none', marginLeft: "1rem" }}
+        arrow={false}
+      >
+        <AddFriendsMenu />
+      </Popup>
+      
     </StyledTopbarActionDiv>
   );
 };
 
 export default TopbarAction;
+
+
+
