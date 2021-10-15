@@ -8,11 +8,6 @@ const StyledProfileDiv = styled.div`
   margin-left: 1rem;
 `;
 
-const StyledProfileAvater = styled.img`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-`;
 
 const StyledProfileDetailDiv = styled.div`
   position: relative;
@@ -34,6 +29,12 @@ const StyledProfileNumP = styled.p`
   color: white;
   font-weight: 200;
   margin: 0;
+`;
+
+const StyledProfileAvater = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 `;
 
 const Profile = () => {

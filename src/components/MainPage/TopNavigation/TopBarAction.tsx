@@ -1,6 +1,4 @@
-import Popup from "reactjs-popup";
 import styled from "styled-components";
-import AddFriendsMenu from "./AddFriendsMenu";
 
 const StyledTopbarActionDiv = styled.div`
   display: flex;
@@ -52,21 +50,6 @@ const TopbarAction = () => {
       </OnlineHighLightedDiv>
       <TopbarActionP>All</TopbarActionP>
       <TopbarActionP>Blocked</TopbarActionP>
-      <Popup
-        trigger={() =><div> <AddFriendsButton>
-          <OnlineHighLightedP>Add Friends</OnlineHighLightedP>
-        </AddFriendsButton></div>}
-        position="right top"
-        on="click"
-        closeOnDocumentClick
-        mouseLeaveDelay={300}
-        mouseEnterDelay={0}
-        contentStyle={{ padding: '0px', border: 'none', marginLeft: "1rem" }}
-        arrow={false}
-      >
-        <AddFriendsMenu />
-      </Popup>
-      
     </StyledTopbarActionDiv>
   );
 };

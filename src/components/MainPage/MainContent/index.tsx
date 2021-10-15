@@ -1,4 +1,4 @@
-import Active from "./Active";
+import Active from "./Active/index";
 import Chats from "./Chats";
 import { StyledMainContent } from "./StyledMainContent";
 
