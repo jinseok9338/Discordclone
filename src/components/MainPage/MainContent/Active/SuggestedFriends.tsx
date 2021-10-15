@@ -6,9 +6,7 @@ import { firestore } from "../../../../firebase/firebase";
 
 import { useState } from "react";
 
-const StyledFriendsListTitle = styled.h1`
 
-`
 
 export const StyledSuggestedFriendsContainer = styled.div`
   width: 417px;
@@ -84,14 +82,14 @@ function SuggestedFriends({user}:suggestedUserType) {
 
     
     return (
-        <>
-            <StyledFriendsListTitle>Suggested Friends</StyledFriendsListTitle>
+       
+            
         <StyledSuggestedFriendsContainer>
                 <StyledSuggestedFriendsAvatar src={user?.profilePic} alt="profile" />
                 <StyledSuggestedFriendsName>{user?.displayName}</StyledSuggestedFriendsName>
                 <StyledSuggestedFriendsToggleButton onClick={() => toggleFriends(user)}>{!sent? "Add":"Pending" }</StyledSuggestedFriendsToggleButton>
         </StyledSuggestedFriendsContainer>
-        </>
+  
     )
 }
 

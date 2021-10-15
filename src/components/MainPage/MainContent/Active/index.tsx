@@ -16,7 +16,9 @@ export const StyledActiveContainer = styled.div`
   align-items:center;
 `;
 
+const StyledFriendsListTitle = styled.h1`
 
+`
 
 
 
@@ -48,6 +50,7 @@ const Active = () => {
 
 
   return <StyledActiveContainer>
+    <StyledFriendsListTitle>Suggested Friends</StyledFriendsListTitle>
     {suggestedFriends?.length > 0 && suggestedFriends.map((suggestedFriend)=>(
       <SuggestedFriends user={suggestedFriend } />
     ))}
