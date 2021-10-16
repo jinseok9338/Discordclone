@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   validateConfirmPassword,
   validateEmail,
@@ -32,6 +32,7 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState({} as ErrorType);
   const auth = getAuth();
+  
 
   const history = useHistory();
 
@@ -66,13 +67,13 @@ const SignUpForm = () => {
             chatRooms: [],
           } as userProfileType;
           await setDoc(doc(firestore, "users", user.uid), data);
-          SetUserFunction(user.uid);
+          await SetUserFunction(user.uid);
           alert("user Created");
           setEmail("");
           setPassword("");
           setConfirmPassword("");
           setError({} as ErrorType);
-          history.push("/main");
+          history.push("/");
         })
         .catch((error) => {
           setError({
@@ -140,7 +141,8 @@ const SignUpForm = () => {
       >
         <Login>SignUp</Login>
       </StyledButton>
-      <WantToSignUp>Already Have an Account?</WantToSignUp>
+      <Link to="/Login">
+        <WantToSignUp>Already Have an Account?</WantToSignUp></Link>
     </StyledLoginFormContainer>
   );
 };

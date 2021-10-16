@@ -18,6 +18,7 @@ import { useHistory } from "react-router";
 import { auth } from "../../firebase/firebase";
 import useDispatch from "../../hooks/useDispatch";
 import { stateContext } from "../../StateManagement/context";
+import { Link } from "react-router-dom";
 
 // TODO Making animation and button Clckiable and loading
 
@@ -74,7 +75,8 @@ const LoginForm = () => {
         <Login>Login</Login>
       </StyledButton>
       <ForgotPassword>Forgot Password?</ForgotPassword>
-      <WantToSignUp>Want to Sign Up?</WantToSignUp>
+      <Link to="/SignUp">
+      <WantToSignUp>Want to Sign Up?</WantToSignUp></Link>
     </StyledLoginFormContainer>
   );
 };

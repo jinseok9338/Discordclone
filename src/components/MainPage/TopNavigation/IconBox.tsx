@@ -18,11 +18,11 @@ const CreateConversationIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M21.998 0V3H24.998V5H21.998V8H19.998V5H16.998V3H19.998V0H21.998ZM3.99805 20V24L9.33205 20H15.998C17.102 20 17.998 19.103 17.998 18V9C17.998 7.896 17.102 7 15.998 7H2.99805C1.89405 7 0.998047 7.896 0.998047 9V18C0.998047 19.103 1.89405 20 2.99805 20H3.99805Z"
       fill="#C7C9CB"
-    />
+    /> 
   </svg>
 );
 

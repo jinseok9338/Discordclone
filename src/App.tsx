@@ -7,16 +7,18 @@ import { useReducer } from "react";
 import { stateReducer } from "./StateManagement/reducer";
 import { initialState } from "./StateManagement/state";
 import { stateContext } from "./StateManagement/context";
+import ProtectedRoute from "./ProtectedRoute";
+import useMaintainState from "./hooks/useMaintainState";
 
 const App = () => {
   const [state, dispatch] = useReducer(stateReducer, initialState);
+  const { mainState } = useMaintainState()
 
   return (
     <stateContext.Provider value={{ state, dispatch }}>
       <Router>
         <Switch>
-          <Route path="/" exact component={MainPage} />
-
+          <ProtectedRoute path='/' user={mainState?.user} exact component={MainPage} />
           <Route path="/Login" component={LoginPage} />
           <Route path="/SignUp" component={SignUpFormPage} />
         </Switch>

@@ -30,23 +30,34 @@ const Active = () => {
   useEffect(() => {
     if (Object.keys(mainState).length > 0) {
       const usersRef = collection(firestore, "users")
-      const q = query(usersRef, where("userId", "!=", mainState?.user?.userId), where('userId', "not-in", mainState?.user?.friends?.map((friend) => friend.userId)), orderBy("userId"), limit(8));
+      let friendsList = mainState?.user?.friends?.map((friend) => friend.userId)
+      if (friendsList.length === 0) {
+        friendsList=["empty"]
+      }
+      const q = query(usersRef,  where('userId', "not-in", friendsList), orderBy("userId"), limit(8));
       // ToDO could cause the error because the friends list can be empty.. What to do 
       getDocs(q).then((QuerySnapshot) => {
+        const FriendsList = [] as userType[]
         QuerySnapshot.forEach((doc) => {
           const Friend = {
             userId: doc.data().userId,
             displayName: doc.data().displayName,
             profilePic: doc.data().profilePic,
           }
-          setSuggestedFriends([...suggestedFriends, Friend])
+          FriendsList.push(Friend);
+          
         }
-
         )
+        const newFriendsList = FriendsList.filter((friends) => friends.userId !== mainState?.user?.userId)
+        setSuggestedFriends(newFriendsList)
       })
     }  
-},[])
+  }, [])
+  
 
+
+
+  console.log(suggestedFriends)
 
 
   return <StyledActiveContainer>

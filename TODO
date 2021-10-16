@@ -9,13 +9,19 @@ Todo:
   ✔ Make ChatRoomFunction with firestroe  @workingon(21-10-12 14:29) @done(21-10-14 13:17)
   ✔ make autocomplete of friends list with array filter @done(21-10-14 13:38)
   ✔ Add Friends to request send list @done(21-10-15 14:43)
-  ☐ ToDO could cause the error because the friends list can be empty.. What to do 
+  ☐ ToDO could cause the error because the friends list can be empty.. What to do
+  ☐ Tons of Debugging... 
+  ✔ Filter Suggested Friends Error... Should there be better ways ... @done(21-10-16 14:21)
+  ☐ Make suggested Friends List Smaller... Ugly UI
+  ✔ Sign in 4 People to work with the DB @done(21-10-16 14:02)
+  ✔ Make protected route for the main @done(21-10-16 13:44)
+  ✔ Make a tag for sign in and Log in @done(21-10-16 13:18)
   ✔ Change the react app icon @done(21-10-15 13:05)
   ✔ For Reusability purpose I need to refactor the PopOver @done(21-10-14 13:57)
   ✔ Add Friends to Friends list UI with Pop over @done(21-10-14 14:14)
   ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)
   ☐ How to handle Friends request with alert with sound
-  ☐ Make Mock data to work with 
+  ✔ Make Mock data to work with @done(21-10-16 14:24)
   ☐ working with websocket to know the other person is typing 
   ☐ Have no chat UI Page for No Chat
   ☐ calculate the day
