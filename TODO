@@ -19,7 +19,9 @@ Todo:
   ✔ Change the react app icon @done(21-10-15 13:05)
   ✔ For Reusability purpose I need to refactor the PopOver @done(21-10-14 13:57)
   ✔ Add Friends to Friends list UI with Pop over @done(21-10-14 14:14)
-  ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)
+  ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)\
+☐ Make File Send system and pictures too... 
+☐ There are tons of things to do...
   ☐ How to handle Friends request with alert with sound
   ✔ Make Mock data to work with @done(21-10-16 14:24)
   ☐ working with websocket to know the other person is typing 
