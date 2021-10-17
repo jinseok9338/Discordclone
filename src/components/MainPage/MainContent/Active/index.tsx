@@ -31,9 +31,12 @@ const Active = () => {
     if (Object.keys(mainState).length > 0) {
       const usersRef = collection(firestore, "users")
       let friendsList = mainState?.user?.friends?.map((friend) => friend.userId)
-      if (friendsList.length === 0) {
+      
+      if (friendsList?.length === 0 || friendsList === null || friendsList === undefined || friendsList[0] === undefined ) {
         friendsList=["empty"]
       }
+      console.log(friendsList)
+      // This is expected but we need to have catch block... For the error handling ... Tedious... 
       const q = query(usersRef,  where('userId', "not-in", friendsList), orderBy("userId"), limit(8));
       // ToDO could cause the error because the friends list can be empty.. What to do 
       getDocs(q).then((QuerySnapshot) => {
@@ -47,8 +50,10 @@ const Active = () => {
           FriendsList.push(Friend);
           
         }
+          
         )
         const newFriendsList = FriendsList.filter((friends) => friends.userId !== mainState?.user?.userId)
+        console.log(newFriendsList)
         setSuggestedFriends(newFriendsList)
       })
     }  

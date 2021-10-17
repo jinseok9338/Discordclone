@@ -52,7 +52,7 @@ const Friends = ({
       <Avatar src={profilePic} alt="Avatar Image" />
       <FirendsDetailDiv>
         <FriendsName>{displayName}</FriendsName>
-        <FriendsDetail>{userId.slice(0, 6)}</FriendsDetail>
+        <FriendsDetail>{userId?.slice(0, 6)}</FriendsDetail>
       </FirendsDetailDiv>
     </FriendsDiv>
   );

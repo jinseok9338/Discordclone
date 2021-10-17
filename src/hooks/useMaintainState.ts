@@ -24,7 +24,7 @@ const useMaintainState = () => {
     }
     // Retrieve from the sessionStorage and also need to set the state too
     setMaintainState(JSON.parse(sessionStorage.getItem("state")!));
-    sessionStorage.setItem("state", JSON.stringify(state));
+    
   }, [state]);
 
   useEffect(() => {

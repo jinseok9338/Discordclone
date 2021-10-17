@@ -44,7 +44,7 @@ const Profile = () => {
       <StyledProfileAvater src={mainState?.user?.profilePic} alt="ProfilePic" />
       <StyledProfileDetailDiv>
         <StyledProfileP>{mainState?.user?.displayName}</StyledProfileP>
-        <StyledProfileNumP>{`#${mainState?.user?.userId.slice(
+        <StyledProfileNumP>{`#${mainState?.user?.userId?.slice(
           0,
           5
         )}`}</StyledProfileNumP>
