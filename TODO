@@ -12,7 +12,7 @@ Todo:
   ✔ ToDO could cause the error because the friends list can be empty.. What to do @done(21-10-17 04:14)
   ✔ Tons of Debugging... @done(21-10-17 04:14)
   ✔ Filter Suggested Friends Error... Should there be better ways ... @done(21-10-16 14:21)
-  ☐ Make suggested Friends List Smaller... Ugly UI 
+  ✔ Make suggested Friends List Smaller... Ugly UI @done(21-10-17 10:44)
   ✔ Sign in 4 People to work with the DB @done(21-10-16 14:02)
   ✔ Make protected route for the main @done(21-10-16 13:44)
   ✔ Make a tag for sign in and Log in @done(21-10-16 13:18)
@@ -20,9 +20,11 @@ Todo:
   ✔ For Reusability purpose I need to refactor the PopOver @done(21-10-14 13:57)
   ✔ Add Friends to Friends list UI with Pop over @done(21-10-14 14:14)
   ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)\
-☐ Make File Send system and pictures too... 
+☐ 5.Make File Send system and pictures too...
+ ☐ 1. Make friends request
+  ☐ 2.and receive friends request
 ☐ There are tons of things to do...
-  ☐ How to handle Friends request with alert with sound
+  ☐ 4 .How to handle Friends request with alert with sound
   ✔ Make Mock data to work with @done(21-10-16 14:24)
   ☐ working with websocket to know the other person is typing 
   ☐ Have no chat UI Page for No Chat

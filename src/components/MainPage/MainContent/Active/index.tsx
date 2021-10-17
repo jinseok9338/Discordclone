@@ -62,13 +62,13 @@ const Active = () => {
 
 
 
-  console.log(suggestedFriends)
+  
 
 
   return <StyledActiveContainer>
     <StyledFriendsListTitle>Suggested Friends</StyledFriendsListTitle>
     {suggestedFriends?.length > 0 && suggestedFriends.map((suggestedFriend)=>(
-      <SuggestedFriends user={suggestedFriend } />
+      <SuggestedFriends  user={suggestedFriend } />
     ))}
    
   </StyledActiveContainer>;
