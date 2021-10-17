@@ -8,7 +8,8 @@ import { stateReducer } from "./StateManagement/reducer";
 import { initialState } from "./StateManagement/state";
 import { stateContext } from "./StateManagement/context";
 import ProtectedRoute from "./ProtectedRoute";
-import useMaintainState from "./hooks/useMaintainState";
+import { AuthProvider } from "./hooks/useAuth";
+
 
 const App = () => {
   const [state, dispatch] = useReducer(stateReducer, initialState);
@@ -16,13 +17,15 @@ const App = () => {
 
   return (
     <stateContext.Provider value={{ state, dispatch }}>
+      <AuthProvider>
       <Router>
         <Switch>
-        <ProtectedRoute path='/' user ={state?.user} exact component={MainPage} />
+        <ProtectedRoute path='/' exact component={MainPage} />
           <Route path="/Login" component={LoginPage} />
           <Route path="/SignUp" component={SignUpFormPage} />
         </Switch>
       </Router>
+       </AuthProvider>
     </stateContext.Provider>
   );
 };

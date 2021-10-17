@@ -19,16 +19,16 @@ export const StyledSuggestedFriendsContainer = styled.div`
 `;
 
 const StyledSuggestedFriendsAvatar = styled.img`
-  width: 52px;
-  height: 52px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin-left: 1rem;
 `;
 
 const StyledSuggestedFriendsToggleButton = styled.button`
 margin-left:1rem;
-  width: 120px;
-  height: 35px;
+  width: 100px;
+  height: 30px;
    border-radius: 18px;
   background-color: #013a70;
   border: solid 1px transparent;
@@ -47,11 +47,20 @@ margin-left:1rem;
 `
 
 const StyledSuggestedFriendsName = styled.p`
-font-size: 1.4rem;
+font-size: 1.2rem;
 margin:0;
 margin-left: 1rem;
+margin-bottom:0.2rem;
 font-weight: 600;
 `
+const StyledSuggestedFriendId = styled.p`
+font-size: 0.9rem;
+margin:0;
+margin-left: 1rem;
+margin-bottom:0.2rem;
+font-weight: 400;
+`
+
 
 interface suggestedUserType{
     user: userType
@@ -86,7 +95,8 @@ function SuggestedFriends({user}:suggestedUserType) {
             
         <StyledSuggestedFriendsContainer>
                 <StyledSuggestedFriendsAvatar src={user?.profilePic} alt="profile" />
-                <StyledSuggestedFriendsName>{user?.displayName}</StyledSuggestedFriendsName>
+        <StyledSuggestedFriendsName>{user?.displayName}</StyledSuggestedFriendsName>
+        <StyledSuggestedFriendId>{`#${user?.userId.slice(0,7)}`}</StyledSuggestedFriendId>
                 <StyledSuggestedFriendsToggleButton onClick={() => toggleFriends(user)}>{!sent? "Add":"Pending" }</StyledSuggestedFriendsToggleButton>
         </StyledSuggestedFriendsContainer>
   

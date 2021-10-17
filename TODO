@@ -9,10 +9,10 @@ Todo:
   ✔ Make ChatRoomFunction with firestroe  @workingon(21-10-12 14:29) @done(21-10-14 13:17)
   ✔ make autocomplete of friends list with array filter @done(21-10-14 13:38)
   ✔ Add Friends to request send list @done(21-10-15 14:43)
-  ☐ ToDO could cause the error because the friends list can be empty.. What to do
-  ☐ Tons of Debugging... 
+  ✔ ToDO could cause the error because the friends list can be empty.. What to do @done(21-10-17 04:14)
+  ✔ Tons of Debugging... @done(21-10-17 04:14)
   ✔ Filter Suggested Friends Error... Should there be better ways ... @done(21-10-16 14:21)
-  ☐ Make suggested Friends List Smaller... Ugly UI
+  ☐ Make suggested Friends List Smaller... Ugly UI 
   ✔ Sign in 4 People to work with the DB @done(21-10-16 14:02)
   ✔ Make protected route for the main @done(21-10-16 13:44)
   ✔ Make a tag for sign in and Log in @done(21-10-16 13:18)
