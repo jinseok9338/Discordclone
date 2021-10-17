@@ -20,6 +20,7 @@ import useDispatch from "../../hooks/useDispatch";
 import { stateContext } from "../../StateManagement/context";
 import { Link } from "react-router-dom";
 
+
 // TODO Making animation and button Clckiable and loading
 
 const LoginForm = () => {
@@ -29,17 +30,19 @@ const LoginForm = () => {
   const { SetUserFunction } = useDispatch();
   const { state } = useContext(stateContext);
 
+
   console.log(state);
 
   const history = useHistory();
 
-  const handleSubmit = (auth: Auth, email: string, password: string) => {
+  const handleSubmit = async (auth: Auth, email: string, password: string) => {
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         // Signed in
         const userId = userCredential.user.uid;
         await SetUserFunction(userId);
         history.push("/");
+
       })
       .catch((error) => {
         const errorMessage = error.message;

@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Redirect, Route } from "react-router-dom";
 import useMaintainState from "./hooks/useMaintainState";
+import { stateContext } from "./StateManagement/context";
 
 const ProtectedRoute = ({ component, user, ...rest }: any) => {
+  
 
+    // When first booting up the user object is null or undefined
     const routeComponent = (props: any) => (
-        Object.keys(user).length !==0
+        (user !== null && user !== undefined && Object.keys(user).length !== 0 )
             ? React.createElement(component, props)
             : <Redirect to={{ pathname: '/Login' }} />
     );

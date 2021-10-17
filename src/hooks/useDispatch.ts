@@ -7,7 +7,7 @@ import { firestore } from "../firebase/firebase";
 import { userProfileType } from "../Types/userType";
 
 const useDispatch = () => {
-  const { dispatch } = useContext(stateContext);
+  const { dispatch, state } = useContext(stateContext);
 
   const SetUserFunction = async (userId: string) => {
     const docRef = doc(firestore, "users", userId);
@@ -16,7 +16,8 @@ const useDispatch = () => {
     if (docSnap.exists()) {
       const userData = docSnap.data() as userProfileType;
       dispatch({ type: "SET_USER", payload: userData });
-      console.log("Document data:", docSnap.data());
+      // console.log("Document data:", docSnap.data());
+    
     } else {
       // doc.data() will be undefined in this case
       console.log("No such document!");
