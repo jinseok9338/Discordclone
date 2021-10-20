@@ -5,6 +5,7 @@ import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { firestore } from "../../../../firebase/firebase";
 
 import { useState } from "react";
+import { toggleFriends } from "./suggestedFriendsFunction";
 
 
 
@@ -74,43 +75,7 @@ function SuggestedFriends({user}:suggestedUserType) {
     // Subscribe to the firestore and update it directly ... Make it as a hook then 
     
     
-    const toggleFriends = async(user: userType) => {
-        const FriendsListRef = doc(firestore, "users", mainState?.user?.userId);
-        const requestSentRef = doc(firestore, "users", user?.userId);
-      if (mainState?.user?.FriendsRequestSent?.filter((requestedFriend)=> requestedFriend.userId === user?.userId ).length > 0) {
-        console.log(mainState?.user?.FriendsRequestSent?.filter((requestedFriend)=> requestedFriend.userId === user?.userId ))
-            await updateDoc(FriendsListRef, {
-                FriendsRequestSent: arrayUnion(user)
-            });
-            await updateDoc(requestSentRef,{
-              FriendsRequest: arrayUnion(
-                {
-                    userId: mainState?.user?.userId,
-                    profilePic: mainState?.user?.profilePic,
-                    displayName: mainState?.user?.displayName
-                  }
-                )              
-            })
-        // Not updating the MainState Friends request Tonight
-            setSent(true)
-            console.log("Sent")
-        } else {
-            await updateDoc(FriendsListRef, {
-                FriendsRequestSent: arrayRemove(user)
-            });
-          await updateDoc(requestSentRef, {
-            FriendsRequest: arrayRemove(
-              {
-                userId: mainState?.user?.userId,
-                profilePic: mainState?.user?.profilePic,
-                displayName: mainState?.user?.displayName
-              }
-            )
-          })
-          setSent(false)
-           console.log("Unsent")
-        }
-    }
+ 
 
      
     return (

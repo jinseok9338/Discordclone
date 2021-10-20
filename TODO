@@ -19,7 +19,8 @@ Todo:
   ✔ Change the react app icon @done(21-10-15 13:05)
   ✔ For Reusability purpose I need to refactor the PopOver @done(21-10-14 13:57)
   ✔ Add Friends to Friends list UI with Pop over @done(21-10-14 14:14)
-  ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)\
+  ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)
+  ✔ Let's do tons of refactor first make Container Compoent for reusability @done(21-10-20 13:49)
 ☐ 5.Make File Send system and pictures too...
  ☐ 1. Make friends request
   ☐ 2.and receive friends request
