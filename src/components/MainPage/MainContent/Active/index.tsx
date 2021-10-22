@@ -6,6 +6,7 @@ import { firestore } from "../../../../firebase/firebase";
 import { useEffect, useState } from "react";
 import { userType } from "../../../../Types/userType";
 import { doc, onSnapshot } from "firebase/firestore";
+import { useAuth } from "../../../../hooks/useAuth";
 
 
 export const StyledActiveContainer = styled.div`
@@ -26,29 +27,19 @@ const StyledFriendsListTitle = styled.h1`
 const Active = () => {
   // Make subscribe to the suggestedFriends List data from firestore 
   const [suggestedFriends, setSuggestedFriends] = useState<userType[]>([])
-  const { mainState } = useMaintainState()
+  const { currentUserProfile } = useAuth()
 
 
 
-  // Need to work on onSnapshot needs to side it as hook though
-  useEffect(() => {
-    
-    const unsub = onSnapshot(doc(firestore, "users", mainState?.user?.userId), (doc) => {
-      
-    });
-   
-    return unsub
-    },[])
-
-
+ 
 
 
   useEffect(() => {
-    if (Object.keys(mainState).length > 0) {
+    if (Object.keys(currentUserProfile).length > 0) {
       const usersRef = collection(firestore, "users")
-      let friendsList = mainState?.user?.friends?.map((friend) => friend.userId)
+      let friendsList = currentUserProfile.friends?.map((friend) => friend.userId)
       
-      if (friendsList?.length === 0 || friendsList === null || friendsList === undefined || friendsList[0] === undefined ) {
+      if ( typeof friendsList === string[]) {
         friendsList=["empty"]
       }
       console.log(friendsList)

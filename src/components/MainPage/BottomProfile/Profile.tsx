@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import useMaintainState from "../../../hooks/useMaintainState";
+import { useAuth } from "../../../hooks/useAuth";
+
 
 const StyledProfileDiv = styled.div`
   width: 91px;
@@ -38,13 +39,13 @@ const StyledProfileAvater = styled.img`
 `;
 
 const Profile = () => {
-  const { mainState } = useMaintainState();
+  const { currentUserProfile} = useAuth()
   return (
     <StyledProfileDiv>
-      <StyledProfileAvater src={mainState?.user?.profilePic} alt="ProfilePic" />
+      <StyledProfileAvater src={currentUserProfile?.profilePic} alt="ProfilePic" />
       <StyledProfileDetailDiv>
-        <StyledProfileP>{mainState?.user?.displayName}</StyledProfileP>
-        <StyledProfileNumP>{`#${mainState?.user?.userId?.slice(
+        <StyledProfileP>{currentUserProfile?.displayName}</StyledProfileP>
+        <StyledProfileNumP>{`#${currentUserProfile?.userId?.slice(
           0,
           5
         )}`}</StyledProfileNumP>

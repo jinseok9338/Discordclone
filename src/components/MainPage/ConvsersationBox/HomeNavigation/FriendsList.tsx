@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useAuth } from "../../../../hooks/useAuth";
 import useMaintainState from "../../../../hooks/useMaintainState";
 import Friends from "./Friends";
 
@@ -43,18 +44,17 @@ const StyledP = styled.p`
 `;
 
 const FriendsList = () => {
-  const { mainState } = useMaintainState(); // One of the best Hook I have ever made ... hook is awesome But we can't determine if the state
-
+  const { currentUserProfile } = useAuth()
   return (
     <>
       <StyledFriendiconBox>
         <FriendsIcon />
         <StyledP>Friends</StyledP>
       </StyledFriendiconBox>
-      {mainState?.user?.friends
-        ? mainState?.user?.friends?.map((friend) => (
+      {currentUserProfile.friends
+        ? currentUserProfile.friends?.map((friend) => (
             <Friends
-              id={mainState?.user?.friends?.indexOf(friend)}
+            id={currentUserProfile.friends?.indexOf(friend)}
               friend={friend}
             />
           ))
