@@ -11,3 +11,20 @@ export const validateConfirmPassword = (
   password: string,
   confirmPassword: string
 ) => (password === confirmPassword ? true : false);
+
+export const isItArrayofString = (value:Array<any>) => {
+  if (Array.isArray(value)) {
+    var somethingIsNotString = false;
+    value.forEach(function (item) {
+      if (typeof item !== 'string') {
+        somethingIsNotString = true;
+      }
+    })
+    if (!somethingIsNotString && value.length > 0) {
+      // console.log('string[]!');
+      return true
+  }
+  return false
+  }
+  return false
+}
