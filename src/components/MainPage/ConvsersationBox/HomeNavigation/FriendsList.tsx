@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useAuth } from "../../../../hooks/useAuth";
-import useMaintainState from "../../../../hooks/useMaintainState";
 import Friends from "./Friends";
 
 const StyledFriendiconBox = styled.div`
@@ -58,7 +57,7 @@ const FriendsList = () => {
               friend={friend}
             />
           ))
-        : null}
+        : null} 
     </>
   );
 };

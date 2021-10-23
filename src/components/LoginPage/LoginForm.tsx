@@ -1,5 +1,4 @@
-import { Auth, signInWithEmailAndPassword } from "firebase/auth";
-import { useContext, useState } from "react";
+import {  useState } from "react";
 import {
   StyledLoginFormContainer,
   DiscordIcon,
@@ -13,11 +12,6 @@ import {
   ForgotPassword,
   WantToSignUp,
 } from "./StyledLoginForm";
-import { ErrorType } from "../SignUpForm/StyledSignUpForm";
-import { useHistory } from "react-router";
-import { auth } from "../../firebase/firebase";
-import useDispatch from "../../hooks/useDispatch";
-import { stateContext } from "../../StateManagement/context";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useMaintainState from "../../../hooks/useMaintainState";
+
 import ChatsInput from "./ChatsInput";
 import MeChat from "./MeChat";
 import OtherPersonChat from "./OtherPersonChat";
@@ -49,23 +49,14 @@ const EmptyContainer = styled.div`
 // This is all the chats that are queried from the firestore
 
 const Chats = () => {
-  const { mainState, chats } = useMaintainState();
-
-  const selectedChat = chats?.filter(
-    (chat) => chat.chatId === mainState.selctedChatRoom
-  )[0];
+ 
 
   return (
     <StyledChatsContainer>
       <ChatsInput chatId={"akkk"} />
-      {selectedChat &&
-        selectedChat.chats.map((chat) =>
-          chat.user.userId === mainState?.user?.userId ? (
             <MeChat />
-          ) : (
             <OtherPersonChat />
-          )
-        )}
+      <OtherPersonChat />
       <DayContainer>
         <DayContainerP>Today</DayContainerP>
       </DayContainer>

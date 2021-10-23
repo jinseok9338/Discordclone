@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { firestore } from "../../../firebase/firebase";
-import useMaintainState from "../../../hooks/useMaintainState";
 
 const StyledChatsInputContainer = styled.div`
   width: 1180px;
@@ -62,15 +61,19 @@ const StyledChatsInput = styled.input`
   border: none;
   margin-left: 0.7rem;
 `;
-const SendButtonContainer = styled.div`
+const SendButtonContainer = styled.div.attrs(
+  (props: { message: string  }) => props
+)`
   width: 108px;
   height: 40px;
-  background: #6588de;
+  background:  ${(props) => (props.message.length > 0 ? "#3765d8" : "#6585d4")};
+  cursor: ${(props) => (props.message.length > 0 && "pointer")};
   border-radius: 14px;
   margin-left: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all ease 0.5s 0s;
 `;
 const SendP = styled.p`
   position: relative;
@@ -101,28 +104,28 @@ function ChatsInput({ chatId }: { chatId: string }) {
   const [message, setMessage] = useState("");
   const [disabled, setDisabled] = useState(false);
 
-  const { mainState } = useMaintainState();
-  const handleSubmit = async (chatId: string) => {
-    const chatDocRef = doc(firestore, "chats", chatId);
-    const chat = {
-      user: {
-        userId: mainState?.user?.userId,
-        profilePic: mainState?.user?.profilePic,
-        displayName: mainState?.user?.displayName,
-      },
-      sent: Date,
-      message,
-    };
-    try {
-      await updateDoc(chatDocRef, {
-        chats: arrayUnion(chat),
-      });
-      setMessage("");
-    } catch (err: any) {
-      console.log(err.message);
-      setDisabled(true);
-    }
-  };
+
+  // const handleSubmit = async (chatId: string) => {
+  //   const chatDocRef = doc(firestore, "chats", chatId);
+  //   const chat = {
+  //     user: {
+  //       userId: mainState?.user?.userId,
+  //       profilePic: mainState?.user?.profilePic,
+  //       displayName: mainState?.user?.displayName,
+  //     },
+  //     sent: Date,
+  //     message,
+  //   };
+  //   try {
+  //     await updateDoc(chatDocRef, {
+  //       chats: arrayUnion(chat),
+  //     });
+  //     setMessage("");
+  //   } catch (err: any) {
+  //     console.log(err.message);
+  //     setDisabled(true);
+  //   }
+  // };
 
   return (
     <StyledChatsInputContainer>
@@ -134,8 +137,8 @@ function ChatsInput({ chatId }: { chatId: string }) {
         onChange={(e) => setMessage(e.target.value)}
         disabled={disabled}
       />
-      <SendButtonContainer onClick={() => handleSubmit(chatId)}>
-        <SendP>Send</SendP>
+      <SendButtonContainer message={message}>
+        <SendP> Send </SendP>
         <SendIcon />
       </SendButtonContainer>
     </StyledChatsInputContainer>

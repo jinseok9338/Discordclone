@@ -25,24 +25,13 @@ const ServserNavigation = () => {
 
   const { state, dispatch } = useContext(stateContext);
 
+const chats =[{}]
+
   return (
     <StyledServersNavigation>
-      {mainState?.user?.chatRooms &&
-        chats.map((chat) =>
-          chat.users.length > 0 ? (
-            <AvatarGroup
-              id={3}
-              chat={chat}
-              chatRoomId={mainState?.selctedChatRoom}
-            />
-          ) : (
-            <Avatar
-              chatRoomId={mainState?.selctedChatRoom}
-              id={0}
-              chat={chat}
-            />
-          )
-        )}
+      <AvatarGroup id={0}/>
+      <Avatar />
+      <Avatar />
       <Popup
         trigger={() => (
           <div>

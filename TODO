@@ -21,6 +21,7 @@ Todo:
   ✔ Add Friends to Friends list UI with Pop over @done(21-10-14 14:14)
   ✔ make dispatch function that sets selected chat room Id function @done(21-10-12 13:44)
   ✔ Let's do tons of refactor first make Container Compoent for reusability @done(21-10-20 13:49)
+  ☐ Let's do MakeOver of the UI with proper animantion 
   ☐ Let's make useAuth for functionality and user state. 
 ☐ 5.Make File Send system and pictures too...
  ☐ 1. Make friends request
