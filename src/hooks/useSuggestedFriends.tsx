@@ -15,6 +15,7 @@ import {
   arrayUnion,
   updateDoc,
   arrayRemove,
+  limit,
 } from "firebase/firestore";
 import { userProfileType, userType } from "../Types/userType";
 import { isItArrayofString } from "../utils/utils";
@@ -54,10 +55,10 @@ export function SuggestedFriendsProvider({
     friendsList = ["empty"];
   }
 
-  useEffect(() => {
+  useEffect(() => { // We need to refactor it again... Shit... Shit ... Damn... 
     const q = query(
       collection(firestore, "users"),
-      where("userId", "not-in", friendsList)
+      where("userId", "not-in", friendsList),limit(10)
     );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setLoading(true);

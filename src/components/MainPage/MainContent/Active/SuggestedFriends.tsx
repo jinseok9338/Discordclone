@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import useMaintainState from "../../../../hooks/useMaintainState";
-import { userType } from "../../../../Types/userType";
-import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
-import { firestore } from "../../../../firebase/firebase";
 
+import { userType } from "../../../../Types/userType";
 import { useState } from "react";
-import { toggleFriends } from "./suggestedFriendsFunction";
 
 export const StyledSuggestedFriendsContainer = styled.div`
   width: 417px;
@@ -65,7 +61,6 @@ interface suggestedUserType {
 }
 
 function SuggestedFriends({ user }: suggestedUserType) {
-  const { mainState } = useMaintainState();
   const [sent, setSent] = useState(false);
 
   // Subscribe to the firestore and update it directly ... Make it as a hook then
@@ -80,7 +75,7 @@ function SuggestedFriends({ user }: suggestedUserType) {
         0,
         7
       )}`}</StyledSuggestedFriendId>
-      <StyledSuggestedFriendsToggleButton onClick={() => toggleFriends(user)}>
+      <StyledSuggestedFriendsToggleButton >
         {!sent ? "Add" : "Pending"}
       </StyledSuggestedFriendsToggleButton>
     </StyledSuggestedFriendsContainer>

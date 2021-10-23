@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Popup from "reactjs-popup";
 import styled from "styled-components";
-import useMaintainState from "../../../../hooks/useMaintainState";
+
 import { stateContext } from "../../../../StateManagement/context";
 
 import MakeChat from "../../MakeChat";
@@ -22,7 +22,7 @@ export const StyledServersNavigation = styled.div`
 `;
 
 const ServserNavigation = () => {
-  const { mainState, chats } = useMaintainState();
+
   const { state, dispatch } = useContext(stateContext);
 
   return (
