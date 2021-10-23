@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 import SuggestedFriends from "./SuggestedFriends";
-import { collection, FieldPath, getDocs, limit, orderBy, query, where } from "firebase/firestore";
-import { firestore } from "../../../../firebase/firebase";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { userType } from "../../../../Types/userType";
-import { doc, onSnapshot } from "firebase/firestore";
+
 import { useAuth } from "../../../../hooks/useAuth";
 
 

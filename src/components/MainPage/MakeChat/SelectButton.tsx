@@ -1,19 +1,11 @@
-import React, { useContext } from "react";
-import useSelected from "../../../hooks/useSelected";
-import { userType } from "../../../Types/userType";
+
 import {
   StyledSelectButton,
   StyledSelectButtonContainer,
 } from "./StyledMakeChat";
-import { arrayUnion, doc, setDoc, updateDoc } from "firebase/firestore";
-import { firestore } from "../../../firebase/firebase";
-import { v4 as uuidv4 } from "uuid";
-import { chatType } from "../../../Types/chatType";
-import { stateContext } from "../../../StateManagement/context";
 
 function SelectButton() {
-  const { selected } = useSelected();
-  const { state, dispatch } = useContext(stateContext);
+
 
   // const MakeChatRoom = async (selected: userType[]) => {
   //   const chatId = uuidv4();

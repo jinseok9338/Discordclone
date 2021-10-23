@@ -7,4 +7,5 @@ export const MainPageBackground = styled.div`
   left: 0px;
   top: 0px;
   background: #202225;
+  overflow:hidden;
 `;

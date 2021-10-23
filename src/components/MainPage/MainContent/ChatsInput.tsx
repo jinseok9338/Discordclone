@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { firestore } from "../../../firebase/firebase";
-import Popup from "reactjs-popup";
 import ChatFileInput from "./ChatFileInput";
 
 const StyledChatsInputContainer = styled.div`
@@ -22,7 +19,8 @@ const StyledChatsInputContainerOutLayer = styled.div`
   display: flex;
   align-items: center;
   flex-direction:column;
-  z-index:10
+  z-index:10;
+  position:relative;
 `;
 
 
