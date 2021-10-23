@@ -26,5 +26,6 @@ module.exports = {
     indent: 'off',
     "import/no-unresolved": 0,
     "quote-props": "off",
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
 };

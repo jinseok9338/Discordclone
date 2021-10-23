@@ -5,7 +5,7 @@ const db = admin.firestore();
 
 exports.writeToFirestore = functions.firestore
   .document("users/{userId}")
-  .onWrite((change, context) => {
+  .onUpdate((change, context) => {
     const authUserId = context.auth?.uid;
     const OldfriendsRequest = change.before.data()!
       .friendsRequestSent as string[];
