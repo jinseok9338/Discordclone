@@ -5,9 +5,6 @@ import SearchBar from "./SearchBar";
 import SelectButton from "./SelectButton";
 import { StyledMakeChat } from "./StyledMakeChat";
 
-
-
-
 const MakeChat = () => {
   const [searchTerm, setSearchTerm] = useState("");
   return (

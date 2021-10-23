@@ -44,7 +44,7 @@ const StyledP = styled.p`
 `;
 
 const FriendsList = () => {
-  const { currentUserProfile } = useAuth()
+  const { currentUserProfile } = useAuth();
   return (
     <>
       <StyledFriendiconBox>
@@ -54,7 +54,7 @@ const FriendsList = () => {
       {currentUserProfile.friends
         ? currentUserProfile.friends?.map((friend) => (
             <Friends
-            id={currentUserProfile.friends?.indexOf(friend)}
+              id={currentUserProfile.friends?.indexOf(friend)}
               friend={friend}
             />
           ))

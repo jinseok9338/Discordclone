@@ -4,15 +4,13 @@ import {
 } from "./StyledMakeChat";
 
 interface SearchBarProps {
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchBar = ({
-  setSearchTerm
-}: SearchBarProps) => {
+const SearchBar = ({ setSearchTerm }: SearchBarProps) => {
   return (
     <StyledSearchBarContainer>
-      <StyledSearchBarInput onChange={(e)=>setSearchTerm(e.target.value)} />
+      <StyledSearchBarInput onChange={(e) => setSearchTerm(e.target.value)} />
     </StyledSearchBarContainer>
   );
 };

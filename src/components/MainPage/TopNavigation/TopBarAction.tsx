@@ -39,7 +39,7 @@ const AddFriendsButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 const TopbarAction = () => {
@@ -55,6 +55,3 @@ const TopbarAction = () => {
 };
 
 export default TopbarAction;
-
-
-

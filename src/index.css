@@ -1,18 +1,18 @@
-html{
-    -moz-user-select: none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
+html {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
 
-   /*
+  /*
      Introduced in Internet Explorer 10.
      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
    */
-   -ms-user-select: none;
-   user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-a{
-   text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 body {
@@ -23,7 +23,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

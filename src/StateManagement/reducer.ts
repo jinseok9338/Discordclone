@@ -1,5 +1,5 @@
 import { userProfileType } from "../Types/userType";
-import {  StateActions } from "./action";
+import { StateActions } from "./action";
 import { State } from "./state";
 
 export const stateReducer = (state: State, action: StateActions): State => {
@@ -13,7 +13,7 @@ export const stateReducer = (state: State, action: StateActions): State => {
       return { ...state, selctedChatRoom: chatRoomId };
     case "OPEN_MAKECHAT":
       const open = action.payload;
-      return {...state,open}
+      return { ...state, open };
     default:
       return state;
   }
@@ -40,4 +40,3 @@ export const OpenMakeChat = (open: boolean) => {
     payload: open,
   };
 };
-

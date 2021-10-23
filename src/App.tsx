@@ -6,20 +6,17 @@ import SignUpFormPage from "./pages/SignUpPage";
 import ProtectedRoute from "./ProtectedRoute";
 import { AuthProvider } from "./hooks/useAuth";
 
-
 const App = () => {
-
-
   return (
-      <AuthProvider>
+    <AuthProvider>
       <Router>
         <Switch>
-        <ProtectedRoute path='/' exact component={MainPage} />
+          <ProtectedRoute path="/" exact component={MainPage} />
           <Route path="/Login" component={LoginPage} />
           <Route path="/SignUp" component={SignUpFormPage} />
         </Switch>
       </Router>
-       </AuthProvider>
+    </AuthProvider>
   );
 };
 

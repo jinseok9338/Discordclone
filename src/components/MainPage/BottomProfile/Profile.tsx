@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import { useAuth } from "../../../hooks/useAuth";
 
-
 const StyledProfileDiv = styled.div`
   width: 91px;
   height: 32px;
   display: flex;
   margin-left: 1rem;
 `;
-
 
 const StyledProfileDetailDiv = styled.div`
   position: relative;
@@ -39,10 +37,13 @@ const StyledProfileAvater = styled.img`
 `;
 
 const Profile = () => {
-  const { currentUserProfile} = useAuth()
+  const { currentUserProfile } = useAuth();
   return (
     <StyledProfileDiv>
-      <StyledProfileAvater src={currentUserProfile?.profilePic} alt="ProfilePic" />
+      <StyledProfileAvater
+        src={currentUserProfile?.profilePic}
+        alt="ProfilePic"
+      />
       <StyledProfileDetailDiv>
         <StyledProfileP>{currentUserProfile?.displayName}</StyledProfileP>
         <StyledProfileNumP>{`#${currentUserProfile?.userId?.slice(

@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import {
   StyledLoginFormContainer,
@@ -13,7 +13,6 @@ import {
   WantToSignUp,
 } from "./StyledSignUpForm";
 
-
 import { useState } from "react";
 
 import { useAuth } from "../../hooks/useAuth";
@@ -22,14 +21,8 @@ const SignUpForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const {handleSignUpSubmit,error} = useAuth()
+  const { handleSignUpSubmit, error } = useAuth();
 
-
-  
-
-
-
- 
   return (
     <StyledLoginFormContainer>
       <DiscordIcon />
@@ -66,16 +59,17 @@ const SignUpForm = () => {
       <StyledButton
         onClick={async (e) => {
           e.preventDefault(); // Might not necessary because it is not a form
-         await handleSignUpSubmit(email, password, confirmPassword);
-          setEmail("")
-          setPassword("")
-          setConfirmPassword("")
+          await handleSignUpSubmit(email, password, confirmPassword);
+          setEmail("");
+          setPassword("");
+          setConfirmPassword("");
         }}
       >
         <Login>SignUp</Login>
       </StyledButton>
       <Link to="/Login">
-        <WantToSignUp>Already Have an Account?</WantToSignUp></Link>
+        <WantToSignUp>Already Have an Account?</WantToSignUp>
+      </Link>
     </StyledLoginFormContainer>
   );
 };

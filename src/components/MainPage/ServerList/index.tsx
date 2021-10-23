@@ -13,7 +13,6 @@ const ServerList = () => {
         <Devider />
         <ServserNavigation />
       </StyledServerList>
-   
     </>
   );
 };

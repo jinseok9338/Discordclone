@@ -21,19 +21,13 @@ import { stateContext } from "../../StateManagement/context";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
-
 // TODO Making animation and button Clckiable and loading
 
 const LoginForm = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
- 
 
-
-  const { handleLoginSubmit, error } = useAuth()
-
+  const { handleLoginSubmit, error } = useAuth();
 
   return (
     <StyledLoginFormContainer>
@@ -62,7 +56,8 @@ const LoginForm = () => {
       </StyledButton>
       <ForgotPassword>Forgot Password?</ForgotPassword>
       <Link to="/SignUp">
-      <WantToSignUp>Want to Sign Up?</WantToSignUp></Link>
+        <WantToSignUp>Want to Sign Up?</WantToSignUp>
+      </Link>
     </StyledLoginFormContainer>
   );
 };

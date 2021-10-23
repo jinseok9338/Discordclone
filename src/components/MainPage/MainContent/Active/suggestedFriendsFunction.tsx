@@ -1,4 +1,10 @@
-import { updateDoc, arrayUnion, arrayRemove, limit, doc } from "firebase/firestore";
+import {
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  limit,
+  doc,
+} from "firebase/firestore";
 import { ReactNode, useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 import { firestore } from "../../../../firebase/firebase";
@@ -7,62 +13,66 @@ import { collection, query, where, onSnapshot } from "firebase/firestore";
 import useMaintainState from "../../../../hooks/useMaintainState";
 import { userType } from "../../../../Types/userType";
 
-
 interface SuggestedFriendsContextType {
-  suggestedFriendsList: userType[],
-
+  suggestedFriendsList: userType[];
 }
 
-const SuggestedFriendsContext = createContext({} as SuggestedFriendsContextType | undefined )
+const SuggestedFriendsContext = createContext(
+  {} as SuggestedFriendsContextType | undefined
+);
 
 export function useSuggestedFriends() {
-    return useContext(SuggestedFriendsContext)
+  return useContext(SuggestedFriendsContext);
 }
 
-//Make it subscribe to the firestore and have the function to toggle the 
+//Make it subscribe to the firestore and have the function to toggle the
 
-export const useSuggestedFriendsProvider = ({ children }: { children: ReactNode }) => {
-
-  const [suggestedFriendsList, setSuggestedFriendsList] = useState([] as userType[]);
-  const { mainState } = useMaintainState()
+export const useSuggestedFriendsProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
+  const [suggestedFriendsList, setSuggestedFriendsList] = useState(
+    [] as userType[]
+  );
+  const { mainState } = useMaintainState();
 
   useEffect(() => {
-    const listedFriends = mainState?.user?.friends?.length > 0 ? mainState?.user?.friends.map((friend) => friend.userId) : ["empty"]
-    const q = query(collection(firestore, "users"), where("userId", "not-in", listedFriends), limit(8));
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        const filteredList = [] as userType[] ;
-        querySnapshot.forEach((doc) => {
-          filteredList.push(doc.data() as userType);
-        });
-        setSuggestedFriendsList(filteredList)
+    const listedFriends =
+      mainState?.user?.friends?.length > 0
+        ? mainState?.user?.friends.map((friend) => friend.userId)
+        : ["empty"];
+    const q = query(
+      collection(firestore, "users"),
+      where("userId", "not-in", listedFriends),
+      limit(8)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const filteredList = [] as userType[];
+      querySnapshot.forEach((doc) => {
+        filteredList.push(doc.data() as userType);
       });
-    
-    return unsubscribe // You need to unsubscribe the onsnap shot otherwise it will lead to memory leak
-  }, [])
-  
+      setSuggestedFriendsList(filteredList);
+    });
 
-  const toggleSendFriendsRequest = (user:userType) => {
+    return unsubscribe; // You need to unsubscribe the onsnap shot otherwise it will lead to memory leak
+  }, []);
+
+  const toggleSendFriendsRequest = (user: userType) => {
     const FriendsListRef = doc(firestore, "users", mainState?.user?.userId);
     const requestSentRef = doc(firestore, "users", user?.userId);
-}
+  };
 
   const value = {
-    suggestedFriendsList
-  }
+    suggestedFriendsList,
+  };
 
-    return (
-        
-      <SuggestedFriendsContext.Provider value={value } >
-{children}
-
-</SuggestedFriendsContext.Provider>
-)
-
-}
-
-
-
-
+  return (
+    <SuggestedFriendsContext.Provider value={value}>
+      {children}
+    </SuggestedFriendsContext.Provider>
+  );
+};
 
 // if (mainUser.FriendsRequestSent?.filter((requestedFriend) => requestedFriend.userId === user?.userId).length > 0) {
 //     console.log(mainUser.FriendsRequestSent?.filter((requestedFriend) => requestedFriend.userId === user?.userId))
