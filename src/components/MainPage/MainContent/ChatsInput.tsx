@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { firestore } from "../../../firebase/firebase";
+import Popup from "reactjs-popup";
+import ChatFileInput from "./ChatFileInput";
 
 const StyledChatsInputContainer = styled.div`
   width: 1180px;
@@ -14,8 +16,19 @@ const StyledChatsInputContainer = styled.div`
   background: #fdfdfd;
 `;
 
+const StyledChatsInputContainerOutLayer = styled.div`
+  width: 1180px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+  z-index:10
+`;
+
+
 const StyledIcon = styled.svg`
   margin-left: 0.7rem;
+  cursor: pointer;
 `;
 
 const FileIcon = () => (
@@ -103,7 +116,10 @@ const SendIcon = () => (
 function ChatsInput({ chatId }: { chatId: string }) {
   const [message, setMessage] = useState("");
   const [disabled, setDisabled] = useState(false);
-
+  const [file, setFile] = useState(null as File | null)
+  const [open, setOpen] = useState(false)
+  
+  console.log(open)
 
   // const handleSubmit = async (chatId: string) => {
   //   const chatDocRef = doc(firestore, "chats", chatId);
@@ -127,21 +143,29 @@ function ChatsInput({ chatId }: { chatId: string }) {
   //   }
   // };
 
-  return (
+  return (<StyledChatsInputContainerOutLayer>
+    <ChatFileInput open={open} />
     <StyledChatsInputContainer>
+      <div onClick={() => setOpen((prev) => !prev)}>
       <FileIcon />
-      <MicIcon />
+      </div>
+      <MicIcon /> 
       <StyledChatsInput
         placeholder={`${disabled ? "Something is wrong" : "Type a message"}`}
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         disabled={disabled}
+        
       />
-      <SendButtonContainer message={message}>
+      <SendButtonContainer
+        onClick={() => setMessage('')}
+        message={message}>
         <SendP> Send </SendP>
         <SendIcon />
       </SendButtonContainer>
     </StyledChatsInputContainer>
+   
+  </StyledChatsInputContainerOutLayer>
   );
 }
 
