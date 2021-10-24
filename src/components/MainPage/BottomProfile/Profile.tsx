@@ -36,17 +36,22 @@ const StyledProfileAvater = styled.img`
   border-radius: 50%;
 `;
 
+const UserData = {
+  "userId": "617521d34147e76375188bb0",
+  "profilePic": "https://source.unsplash.com/collection/25",
+  "displayName": "Hodges Lynch"
+}
 const Profile = () => {
   const { currentUserProfile } = useAuth();
   return (
     <StyledProfileDiv>
       <StyledProfileAvater
-        src={currentUserProfile?.profilePic}
+        src={UserData.profilePic}
         alt="ProfilePic"
       />
       <StyledProfileDetailDiv>
-        <StyledProfileP>{currentUserProfile?.displayName}</StyledProfileP>
-        <StyledProfileNumP>{`#${currentUserProfile?.userId?.slice(
+        <StyledProfileP>{UserData.displayName.slice(0,7)}</StyledProfileP>
+        <StyledProfileNumP>{`#${UserData.userId?.slice(
           0,
           5
         )}`}</StyledProfileNumP>
