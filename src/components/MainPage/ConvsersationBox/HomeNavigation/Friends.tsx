@@ -76,6 +76,7 @@ const Ringing = styled.div`
 
 
 const Circle = styled.div`
+margin-left:0.02rem;
  width: 5px;
     height: 5px;
     background-color: #62bd19;
@@ -85,8 +86,8 @@ const Circle = styled.div`
 `
 const PulsatingDot = () => (
   <RingContainer>
-    <Ringing></Ringing>
     <Circle></Circle>
+    <Ringing></Ringing>
   </RingContainer>
 )
 
