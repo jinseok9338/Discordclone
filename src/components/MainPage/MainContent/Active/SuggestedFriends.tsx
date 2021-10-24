@@ -75,7 +75,7 @@ function SuggestedFriends({ user }: suggestedUserType) {
         0,
         7
       )}`}</StyledSuggestedFriendId>
-      <StyledSuggestedFriendsToggleButton >
+      <StyledSuggestedFriendsToggleButton>
         {!sent ? "Add" : "Pending"}
       </StyledSuggestedFriendsToggleButton>
     </StyledSuggestedFriendsContainer>

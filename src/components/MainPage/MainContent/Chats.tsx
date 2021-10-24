@@ -49,13 +49,11 @@ const EmptyContainer = styled.div`
 // This is all the chats that are queried from the firestore
 
 const Chats = () => {
- 
-
   return (
     <StyledChatsContainer>
       <ChatsInput chatId={"akkk"} />
-            <MeChat />
-            <OtherPersonChat />
+      <MeChat />
+      <OtherPersonChat />
       <OtherPersonChat />
       <DayContainer>
         <DayContainerP>Today</DayContainerP>

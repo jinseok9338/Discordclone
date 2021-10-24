@@ -23,9 +23,9 @@ module.exports = {
   plugins: ["@typescript-eslint", "import"],
   rules: {
     quotes: "off",
-    indent: 'off',
+    indent: "off",
     "import/no-unresolved": 0,
     "quote-props": "off",
-    '@typescript-eslint/no-non-null-assertion': 'off',
+    "@typescript-eslint/no-non-null-assertion": "off",
   },
 };

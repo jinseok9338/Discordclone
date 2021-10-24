@@ -45,15 +45,15 @@ interface AvatarGroupProps {
   chatRoomId: string;
 }
 
-const AvatarGroup = ({id}:{id:number}) => {
-
+const AvatarGroup = ({ id }: { id: number }) => {
   return (
-    <AvatarGroupDivOutLayer id={id}
-    >
+    <AvatarGroupDivOutLayer id={id}>
       <AvatarGroupDivInLayer>
-        {[1,2,3,4].map((i) => (
-          <StyledAvatar src={`https://source.unsplash.com/collection/${i}`}
-            alt="Avatar"/>
+        {[1, 2, 3, 4].map((i) => (
+          <StyledAvatar
+            src={`https://source.unsplash.com/collection/${i}`}
+            alt="Avatar"
+          />
         ))}
       </AvatarGroupDivInLayer>
     </AvatarGroupDivOutLayer>

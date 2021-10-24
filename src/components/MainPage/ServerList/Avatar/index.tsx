@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { chatType } from "../../../../Types/chatType";
 
-
 export const StyledAvatarIcon = styled.img.attrs(
   (props: { id: number }) => props
 )`
@@ -12,7 +11,7 @@ export const StyledAvatarIcon = styled.img.attrs(
   border-radius: 50%;
   top: ${(props) => (props.id === 0 ? "0rem" : "0.5rem")};
   cursor: pointer;
-   margin-top: 0.5rem;
+  margin-top: 0.5rem;
 `;
 
 interface AvatarProps {
@@ -22,8 +21,6 @@ interface AvatarProps {
 }
 
 const Avatar = () => {
-
-
   return (
     <StyledAvatarIcon
       src={`https://source.unsplash.com/random`}

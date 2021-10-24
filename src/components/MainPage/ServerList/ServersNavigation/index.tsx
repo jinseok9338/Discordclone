@@ -22,14 +22,13 @@ export const StyledServersNavigation = styled.div`
 `;
 
 const ServserNavigation = () => {
-
   const { state, dispatch } = useContext(stateContext);
 
-const chats =[{}]
+  const chats = [{}];
 
   return (
     <StyledServersNavigation>
-      <AvatarGroup id={0}/>
+      <AvatarGroup id={0} />
       <Avatar />
       <Avatar />
       <Popup

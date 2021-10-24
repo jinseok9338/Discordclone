@@ -5,7 +5,6 @@ import FriendsListIconAvatars from "./FriendsListIconAvatars";
 import { StyledFriendsListIconsContainer } from "./StyledMakeChat";
 
 function FriendsListIcons({ searchTerm }: { searchTerm: string }) {
-
   const { toggleSelected, selected } = useSelected();
   const [filteredFriends, setFilteredFriends] = useState([] as userType[]);
 

@@ -57,7 +57,7 @@ const FriendsList = () => {
               friend={friend}
             />
           ))
-        : null} 
+        : null}
     </>
   );
 };

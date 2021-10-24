@@ -18,11 +18,10 @@ const StyledChatsInputContainerOutLayer = styled.div`
   height: fit-content;
   display: flex;
   align-items: center;
-  flex-direction:column;
-  z-index:10;
-  position:relative;
+  flex-direction: column;
+  z-index: 10;
+  position: relative;
 `;
-
 
 const StyledIcon = styled.svg`
   margin-left: 0.7rem;
@@ -73,12 +72,12 @@ const StyledChatsInput = styled.input`
   margin-left: 0.7rem;
 `;
 const SendButtonContainer = styled.div.attrs(
-  (props: { message: string  }) => props
+  (props: { message: string }) => props
 )`
   width: 108px;
   height: 40px;
-  background:  ${(props) => (props.message.length > 0 ? "#3765d8" : "#6585d4")};
-  cursor: ${(props) => (props.message.length > 0 && "pointer")};
+  background: ${(props) => (props.message.length > 0 ? "#3765d8" : "#6585d4")};
+  cursor: ${(props) => props.message.length > 0 && "pointer"};
   border-radius: 14px;
   margin-left: auto;
   display: flex;
@@ -114,10 +113,10 @@ const SendIcon = () => (
 function ChatsInput({ chatId }: { chatId: string }) {
   const [message, setMessage] = useState("");
   const [disabled, setDisabled] = useState(false);
-  const [file, setFile] = useState(null as File | null)
-  const [open, setOpen] = useState(false)
-  
-  console.log(open)
+  const [file, setFile] = useState(null as File | null);
+  const [open, setOpen] = useState(false);
+
+  console.log(open);
 
   // const handleSubmit = async (chatId: string) => {
   //   const chatDocRef = doc(firestore, "chats", chatId);
@@ -141,29 +140,26 @@ function ChatsInput({ chatId }: { chatId: string }) {
   //   }
   // };
 
-  return (<StyledChatsInputContainerOutLayer>
-    <ChatFileInput open={open} />
-    <StyledChatsInputContainer>
-      <div onClick={() => setOpen((prev) => !prev)}>
-      <FileIcon />
-      </div>
-      <MicIcon /> 
-      <StyledChatsInput
-        placeholder={`${disabled ? "Something is wrong" : "Type a message"}`}
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        disabled={disabled}
-        
-      />
-      <SendButtonContainer
-        onClick={() => setMessage('')}
-        message={message}>
-        <SendP> Send </SendP>
-        <SendIcon />
-      </SendButtonContainer>
-    </StyledChatsInputContainer>
-   
-  </StyledChatsInputContainerOutLayer>
+  return (
+    <StyledChatsInputContainerOutLayer>
+      <ChatFileInput open={open} />
+      <StyledChatsInputContainer>
+        <div onClick={() => setOpen((prev) => !prev)}>
+          <FileIcon />
+        </div>
+        <MicIcon />
+        <StyledChatsInput
+          placeholder={`${disabled ? "Something is wrong" : "Type a message"}`}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          disabled={disabled}
+        />
+        <SendButtonContainer onClick={() => setMessage("")} message={message}>
+          <SendP> Send </SendP>
+          <SendIcon />
+        </SendButtonContainer>
+      </StyledChatsInputContainer>
+    </StyledChatsInputContainerOutLayer>
   );
 }
 

@@ -55,10 +55,12 @@ export function SuggestedFriendsProvider({
     friendsList = ["empty"];
   }
 
-  useEffect(() => { // We need to refactor it again... Shit... Shit ... Damn... 
+  useEffect(() => {
+    // We need to refactor it again... Shit... Shit ... Damn...
     const q = query(
       collection(firestore, "users"),
-      where("userId", "not-in", friendsList),limit(10)
+      where("userId", "not-in", friendsList),
+      limit(10)
     );
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setLoading(true);

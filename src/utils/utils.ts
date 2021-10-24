@@ -29,20 +29,14 @@ export const isItArrayofString = (value: Array<any>) => {
   return false;
 };
 
+export function getFileType(file: File) {
+  if (file.type.match("image.*")) return "image";
 
-export function getFileType(file:File) {
+  if (file.type.match("video.*")) return "video";
 
-  if (file.type.match('image.*'))
-    return 'image';
+  if (file.type.match("audio.*")) return "audio";
 
-  if (file.type.match('video.*'))
-    return 'video';
-
-  if (file.type.match('audio.*'))
-    return 'audio';
-
-  if (file.type.match('application/pdf'))
-    return 'pdf';
+  if (file.type.match("application/pdf")) return "pdf";
   // etc...
-  return 'other';
+  return "other";
 }

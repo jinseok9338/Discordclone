@@ -1,12 +1,9 @@
-
 import {
   StyledSelectButton,
   StyledSelectButtonContainer,
 } from "./StyledMakeChat";
 
 function SelectButton() {
-
-
   // const MakeChatRoom = async (selected: userType[]) => {
   //   const chatId = uuidv4();
   //   const createChatData = {
@@ -40,11 +37,9 @@ function SelectButton() {
 
   return (
     <StyledSelectButtonContainer>
-      <StyledSelectButton >
-        Make a chat
-      </StyledSelectButton>
+      <StyledSelectButton>Make a chat</StyledSelectButton>
     </StyledSelectButtonContainer>
   );
 }
 
-export default SelectButton
+export default SelectButton;
