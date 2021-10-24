@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getFileType } from "../../../utils/utils";
 import ReactTooltip from "react-tooltip";
+import ProgressBar from "./ProgressBar";
 
 const StyledInputBoxContainer = styled.div.attrs(
   (props: { open: boolean }) => props
@@ -109,6 +110,7 @@ interface ChatFileInputProps {
 function ChatFileInput({ open, setOpen }: ChatFileInputProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<File[]>([]);
+  const [loading, setLoading] = useState(true)
 
   console.log(files);
 
@@ -173,7 +175,7 @@ function ChatFileInput({ open, setOpen }: ChatFileInputProps) {
                   <CloseIcon />
                 </div>
                 <FileImage src={`${imageSelect(File)}`} />
-                <Title>{File.name}</Title>
+                {loading ? <ProgressBar /> : <Title>{File.name}</Title>}
               </AddFileBox>
             ))}
             <SendBox data-tip="Upload" onClick={() => UploadFile(files)}>
