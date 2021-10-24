@@ -142,7 +142,7 @@ function ChatsInput({ chatId }: { chatId: string }) {
 
   return (
     <StyledChatsInputContainerOutLayer>
-      <ChatFileInput open={open} />
+      <ChatFileInput setOpen={setOpen} open={open} />
       <StyledChatsInputContainer>
         <div onClick={() => setOpen((prev) => !prev)}>
           <FileIcon />

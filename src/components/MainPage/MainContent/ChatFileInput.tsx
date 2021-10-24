@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { getFileType } from "../../../utils/utils";
+import ReactTooltip from "react-tooltip";
 
 const StyledInputBoxContainer = styled.div.attrs(
   (props: { open: boolean }) => props
@@ -60,7 +61,16 @@ const CloseButton = styled.svg`
   cursor: pointer;
 `;
 
-const CloseIcon = () => (
+const SendBox = styled(AddFileBox)`
+  width: 4rem;
+  height: 4rem;
+  margin-left: auto;
+  justify-content: center;
+  margin-right: 1rem;
+  cursor: pointer;
+`;
+
+const CloseIcon = ({ children }: any) => (
   <CloseButton
     width="16"
     height="16"
@@ -93,9 +103,10 @@ const PlusIcon = () => (
 
 interface ChatFileInputProps {
   open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function ChatFileInput({ open }: ChatFileInputProps) {
+function ChatFileInput({ open, setOpen }: ChatFileInputProps) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<File[]>([]);
 
@@ -117,6 +128,15 @@ function ChatFileInput({ open }: ChatFileInputProps) {
       : "image/fileIcon/other.png";
   };
 
+  const UploadFile = (Files: File[]) => {
+    setFiles([]);
+    setOpen(false);
+  };
+
+  const handleRemoveItem = (File: File) => {
+    setFiles(files.filter((file, i) => i !== files.indexOf(File)));
+  };
+
   useEffect(() => {
     if (!open) {
       setFiles([]);
@@ -124,28 +144,65 @@ function ChatFileInput({ open }: ChatFileInputProps) {
   }, [open]);
 
   return (
-    <StyledInputBoxContainer open={open}>
-      <AddFileBox onClick={() => triggerClick()}>
-        <AddFile>
-          <PlusIcon />
-          <input
-            id="selectImage"
-            hidden
-            type="file"
-            ref={inputRef}
-            onChange={(e) => setFiles([...files, e.target.files![0]])}
-          />
-        </AddFile>
-      </AddFileBox>
-      {files.length > 0 &&
-        files.map((file) => (
-          <AddFileBox>
-            <CloseIcon />
-            <FileImage src={`${imageSelect(file)}`} />
-            <Title>{file.name}</Title>
-          </AddFileBox>
-        ))}
-    </StyledInputBoxContainer>
+    <>
+      <StyledInputBoxContainer open={open}>
+        <AddFileBox data-tip="Add File" onClick={() => triggerClick()}>
+          <AddFile>
+            <PlusIcon />
+            <input
+              id="selectImage"
+              hidden
+              type="file"
+              ref={inputRef}
+              onChange={(e) => {
+                console.log(e.target.files!);
+                setFiles([...files, e.target.files![0]]);
+              }}
+              onClick={(e) => {
+                const element = e.target as HTMLInputElement;
+                element.value = "";
+              }}
+            />
+          </AddFile>
+        </AddFileBox>
+        {files.length > 0 && (
+          <>
+            {files.map((File) => (
+              <AddFileBox>
+                <div onClick={() => handleRemoveItem(File)}>
+                  <CloseIcon />
+                </div>
+                <FileImage src={`${imageSelect(File)}`} />
+                <Title>{File.name}</Title>
+              </AddFileBox>
+            ))}
+            <SendBox data-tip="Upload" onClick={() => UploadFile(files)}>
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.7063 12.7135C19.8 12.6205 19.8743 12.5099 19.925 12.388C19.9757 12.2661 20.0018 12.1354 20.0017 12.0033C20.0016 11.8713 19.9754 11.7406 19.9245 11.6188C19.8737 11.497 19.7992 11.3864 19.7055 11.2935L16.7036 8.29536C16.6106 8.20169 16.4999 8.12736 16.3781 8.07667C16.2562 8.02598 16.1254 7.99992 15.9934 8C15.8614 8.00008 15.7307 8.0263 15.6089 8.07714C15.4871 8.12798 15.3765 8.20245 15.2836 8.29623L12.2855 11.2981C12.0973 11.4865 11.9916 11.7419 11.9918 12.0082C11.992 12.2746 12.0979 12.5299 12.2863 12.7181C12.4747 12.9063 12.7302 13.0119 12.9965 13.0117C13.2628 13.0116 13.5181 12.9056 13.7063 12.7172L14.9955 11.4164L15.0026 23.0064C15.0028 23.2716 15.1083 23.5259 15.2959 23.7133C15.4836 23.9008 15.738 24.006 16.0032 24.0058C16.2685 24.0056 16.5227 23.9001 16.7102 23.7125C16.8976 23.5248 17.0028 23.2704 17.0026 23.0052L16.9955 11.4152L18.2863 12.7144C18.3793 12.8081 18.49 12.8824 18.6119 12.9331C18.7338 12.9838 18.8645 13.0098 18.9965 13.0098C19.1285 13.0097 19.2592 12.9835 19.381 12.9326C19.5029 12.8818 19.6134 12.8073 19.7063 12.7135Z"
+                  fill="#FAFCFC"
+                />
+                <circle
+                  cx="16"
+                  cy="16"
+                  r="15"
+                  stroke="#FAFCFC"
+                  stroke-width="2"
+                />
+              </svg>
+            </SendBox>
+          </>
+        )}
+      </StyledInputBoxContainer>
+      <ReactTooltip />
+      <ReactTooltip />
+    </>
   );
 }
 
