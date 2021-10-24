@@ -44,16 +44,49 @@ const StyledP = styled.p`
 
 const FriendsList = () => {
   const { currentUserProfile } = useAuth();
+
+  const friends = [
+    {
+      "userId": "617521d3c75c484c5eeb894c",
+      "displayName": "Sherri Phelps",
+      "profilePic": "https://source.unsplash.com/collection/9",
+      "status": "sleep"
+    },
+    {
+      "userId": "617521d34147e76375188bb0",
+      "displayName": "Hodges Lynch",
+      "profilePic": "https://source.unsplash.com/collection/15",
+      "status": "sleep"
+    },
+    {
+      "userId": "617521d38ac3e98e4cd4c50c",
+      "displayName": "Vilma Reynolds",
+      "profilePic": "https://source.unsplash.com/collection/7",
+      "status": "busy"
+    },
+    {
+      "userId": "617521d3fde59793a873381c",
+      "displayName": "Karina Cooper",
+      "profilePic": "https://source.unsplash.com/collection/5",
+      "status": "busy"
+    },
+    {
+      "userId": "617521d373fc8a13f29645d3",
+      "displayName": "Roberson Heath",
+      "profilePic": "https://source.unsplash.com/collection/0",
+      "status": "online"
+    }
+  ]// There goes the dummy data...
   return (
     <>
       <StyledFriendiconBox>
         <FriendsIcon />
         <StyledP>Friends</StyledP>
       </StyledFriendiconBox>
-      {currentUserProfile.friends
-        ? currentUserProfile.friends?.map((friend) => (
+      {friends
+        ? friends?.map((friend) => (
             <Friends
-              id={currentUserProfile.friends?.indexOf(friend)}
+              id={friends?.indexOf(friend)}
               friend={friend}
             />
           ))

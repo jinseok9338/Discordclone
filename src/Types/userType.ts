@@ -2,6 +2,7 @@ export type userType = {
   userId: string;
   displayName: string;
   profilePic: string;
+  status?:string
 };
 
 export type userProfileType = {
@@ -11,6 +12,6 @@ export type userProfileType = {
   displayName: string;
   friends: userType[];
   FriendsRequest: userType[];
-  FriendsRequestSent: userType[];
+  FriendsRequestSent: userType[]; 
   chatRooms: string[]; // Has chat room Id...
 };

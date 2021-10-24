@@ -54,7 +54,6 @@ const Chats = () => {
       <ChatsInput chatId={"akkk"} />
       <MeChat />
       <OtherPersonChat />
-      <OtherPersonChat />
       <DayContainer>
         <DayContainerP>Today</DayContainerP>
       </DayContainer>
